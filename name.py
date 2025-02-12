@@ -8,7 +8,7 @@ from selenium.common.exceptions import TimeoutException, NoSuchElementException
 import time
 
 driver = webdriver.Chrome()
-driver.get("https://uat-dashboard.fundednext.com")
+driver.get("URL")
 driver.maximize_window() 
 
 username = WebDriverWait(driver, 10).until(
