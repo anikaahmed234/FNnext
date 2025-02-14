@@ -9,7 +9,7 @@ from challenge import take_challenge
 from checkout import checkout
 from paymentMethod import paymentMethod
 
-from config import get_driver, USERNAME, PASSWORD, URL, time
+from utilities.config import get_driver, USERNAME, PASSWORD, URL, time
 
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
