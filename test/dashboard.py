@@ -24,13 +24,13 @@ dashboard = WebDriverWait(driver, 20).until(
 assert dashboard.is_displayed(), "Dashboard is not visible after login"
 
 # start challenge
-driver = take_challenge(driver)
+take_challenge(driver)
 
 # Checkout
-driver = checkout(driver)
+checkout(driver)
 
 # Select Payment Method
-driver = paymentMethod(driver)
+paymentMethod(driver)
 
 print("Ta da!!! Completed!")
 driver.quit()
