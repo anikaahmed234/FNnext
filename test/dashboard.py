@@ -15,24 +15,22 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 
-def dashboard(driver):
+driver = perform_login()
 
-    driver = perform_login()
+# Verify Dashboard
+dashboard = WebDriverWait(driver, 20).until(
+    EC.visibility_of_element_located(DashboardPageLocators.DASHBOARD_TITLE)
+)
+assert dashboard.is_displayed(), "Dashboard is not visible after login"
 
-    # Verify Dashboard
-    dashboard = WebDriverWait(driver, 20).until(
-        EC.visibility_of_element_located(DashboardPageLocators.DASHBOARD_TITLE)
-    )
-    assert dashboard.is_displayed(), "Dashboard is not visible after login"
+# start challenge
+driver = take_challenge(driver)
 
-    # start challenge
-    driver = take_challenge(driver)
+# Checkout
+driver = checkout(driver)
 
-    # Checkout
-    driver = checkout(driver)
+# Select Payment Method
+driver = paymentMethod(driver)
 
-    # Select Payment Method
-    driver = paymentMethod(driver)
-
-    print("Ta da!!! Completed!")
-    driver.quit()
+print("Ta da!!! Completed!")
+driver.quit()
