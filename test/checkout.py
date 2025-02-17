@@ -1,20 +1,14 @@
-import sys
-import os
-
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
-from locators import *
-from utilities.config import get_driver, USERNAME, PASSWORD, URL, time
+import time
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
+from locators import *
 
 def checkout(driver):
 
-    checkout = WebDriverWait(driver, 20).until(
+    checkout_title = WebDriverWait(driver, 20).until(
         EC.visibility_of_element_located(CheckoutPageLocators.CHECKOUT_TITLE)
     )
-    assert checkout.is_displayed(), "Checkout is not visible after redirect"
+    assert checkout_title.is_displayed(), "Checkout is not visible after redirect"
 
     image_element = WebDriverWait(driver, 20).until(
         EC.element_to_be_clickable(CheckoutPageLocators.EVALUATION_BUTTON)
