@@ -19,3 +19,4 @@ def take_challenge(driver):
     start_challenge.click()
 
     return driver
+

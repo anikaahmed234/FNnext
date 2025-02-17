@@ -12,7 +12,7 @@ load_dotenv()
 options = webdriver.ChromeOptions()
 options.add_argument("--start-maximized")  
 
-USERNAME = os.getenv("USERNAME")
+USERNAME = os.getenv("TESTUSERNAME")
 PASSWORD = os.getenv("PASSWORD")
 URL = os.getenv("URL")
 

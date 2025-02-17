@@ -6,3 +6,4 @@ class CheckoutPageLocators:
     PLAN_BUTTON = (By.XPATH, "//button[contains(@data-plan, 'Evaluation $25,000')]")
     CHECKBOX = (By.CSS_SELECTOR, "#addon-3")
     GET_STARTED_BUTTON = (By.XPATH, "//button[contains(., 'Get Started')]")
+
