@@ -24,7 +24,7 @@ def sidebarLoc():
 
     time.sleep(3)
 
-    expected_url = 'https://uat-dashboard.fundednext.com/accounts'
+    expected_url = f'{URL}/accounts'
     current_url = driver.current_url
     assert current_url == expected_url, f"Expected URL: {expected_url}, but got: {current_url}"
 
@@ -36,7 +36,7 @@ def sidebarLoc():
 
     time.sleep(3)
 
-    expected_url = 'https://uat-dashboard.fundednext.com/billing/billing-history'
+    expected_url = f'{URL}/billing/billing-history'
     current_url = driver.current_url
     assert current_url == expected_url, f"Expected URL: {expected_url}, but got: {current_url}"
 
@@ -48,7 +48,7 @@ def sidebarLoc():
 
     time.sleep(3)
 
-    expected_url = 'https://uat-dashboard.fundednext.com/payout'
+    expected_url = f'{URL}/payout'
     current_url = driver.current_url
     assert current_url == expected_url, f"Expected URL: {expected_url}, but got: {current_url}"
 
@@ -60,7 +60,7 @@ def sidebarLoc():
 
     time.sleep(3)
 
-    expected_url = 'https://uat-dashboard.fundednext.com/competition'
+    expected_url = f'{URL}/competition'
     current_url = driver.current_url
     assert current_url == expected_url, f"Expected URL: {expected_url}, but got: {current_url}"
 
@@ -72,7 +72,7 @@ def sidebarLoc():
 
     time.sleep(3)
 
-    expected_url = 'https://uat-dashboard.fundednext.com/user-offer'
+    expected_url = f'{URL}/user-offer'
     current_url = driver.current_url
     assert current_url == expected_url, f"Expected URL: {expected_url}, but got: {current_url}"
 
@@ -86,7 +86,7 @@ def sidebarLoc():
 
     time.sleep(3)
 
-    expected_url = 'https://uat-dashboard.fundednext.com/utilities'
+    expected_url = f'{URL}/utilities'
     current_url = driver.current_url
     assert current_url == expected_url, f"Expected URL: {expected_url}, but got: {current_url}"
 
@@ -99,7 +99,7 @@ def sidebarLoc():
 
     time.sleep(3)
 
-    expected_url = 'https://uat-lander.fundednext.com/symbols'
+    expected_url = f'{URL}/symbols'
     current_url = driver.current_url
     # assert current_url == expected_url, f"Expected URL: {expected_url}, but got: {current_url}"
 
@@ -111,7 +111,7 @@ def sidebarLoc():
 
     time.sleep(3)
 
-    expected_url = 'https://uat-dashboard.fundednext.com/widgets'
+    expected_url = f'{URL}/widgets'
     current_url = driver.current_url
     assert current_url == expected_url, f"Expected URL: {expected_url}, but got: {current_url}"
 
@@ -123,7 +123,7 @@ def sidebarLoc():
 
     time.sleep(3)
 
-    expected_url = 'https://uat-dashboard.fundednext.com/support-tickets'
+    expected_url = f'{URL}/support-tickets'
     current_url = driver.current_url
     assert current_url == expected_url, f"Expected URL: {expected_url}, but got: {current_url}"
 
