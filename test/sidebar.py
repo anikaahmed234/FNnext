@@ -8,13 +8,7 @@ from utilities.config import DASHBOARD
 from locators import *
 from .login import *
 
-def sidebarLoc():
-
-    driver = perform__valid_login()
-
-    #logo
-
-    #sidebars
+def sidebarLoc(driver):
 
     #account
     accounts = WebDriverWait(driver, 20).until(
@@ -140,16 +134,5 @@ def sidebarLoc():
     # assert current_url == expected_url, f"Expected URL: {expected_url}, but got: {current_url}"
 
     driver.get(DASHBOARD)
-
-    #profile pic
-
-    #tabs
-
-    #search box
-
-    #filter
-
-    #banners
-
 
     return driver

@@ -1,2 +1,4 @@
-from test import sidebar
-sidebar.sidebarLoc()
+
+
+from test import login
+login.perform__valid_login()

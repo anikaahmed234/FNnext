@@ -8,10 +8,8 @@ from .challenge import *
 from .checkout import *
 from .paymentMethod import *
 
-def test_dashbaord():
+def cardPurchase(driver):
         
-    driver = perform__valid_login()
-
     # Verify Dashboard
     dashboard = WebDriverWait(driver, 20).until(
         EC.visibility_of_element_located(DashboardPageLocators.DASHBOARD_TITLE)
@@ -25,6 +23,6 @@ def test_dashbaord():
     checkout(driver)
 
     # Select Payment Method
-    paymentMethod(driver)
+    paymentCard(driver)
 
     return driver
