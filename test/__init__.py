@@ -3,3 +3,4 @@ from .login import *
 from .challenge import *
 from .checkout import *
 from .paymentMethod import *
+from .sidebar import *

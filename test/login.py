@@ -6,6 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 def perform__valid_login():
 
     driver = get_driver()
+    driver.get(URL)
 
     # Login
     username = WebDriverWait(driver, 20).until(
@@ -24,7 +25,8 @@ def perform__valid_login():
 def perform__invalid_login():
 
     driver = get_driver()
-
+    driver.get(URL)
+    print("logging..")
     # Login
     username = WebDriverWait(driver, 20).until(
         EC.presence_of_element_located(LoginPageLocators.EMAIL_INPUT)

@@ -1,2 +1,2 @@
-from test import dashboard_test
-dashboard_test.test_dashbaord()
+from test import sidebar
+sidebar.sidebarLoc()

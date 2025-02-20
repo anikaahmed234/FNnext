@@ -7,3 +7,5 @@ class FreeTrialButton:
         PAYMENT_METHOD_TEXT = (By.XPATH, "//h1[contains(text(), 'Select Account Size')]")
         Thank_you_msg = (By.XPATH, "//h3[contains(text(), 'Thank you for starting FundedNext Free Trial!')]")
         START_CHALLENGE_BUTTON = (By.LINK_TEXT, "Start Challenge")
+        close_icon = (By.CLASS_NAME, "ant-notification-notice-close")
+        close_text = (By.XPATH, "//h3[contains(text(), 'nnouncement Registration for September Competition...'))]")
