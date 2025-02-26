@@ -12,9 +12,11 @@ def close_popUp(driver):
     wait = WebDriverWait(driver, 20)
 
     close = wait.until(EC.visibility_of_element_located(popUps.tradingUpdates))
-    close.click()
+    if(close.is_displayed):
+        close.click()
 
     closer = wait.until(EC.visibility_of_element_located(popUps.referPopUp))
-    closer.click()
+    if(closer.is_displayed):
+        closer.click()
     
     return driver
