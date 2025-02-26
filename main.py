@@ -1,2 +1,2 @@
-from test import card_purchase
-card_purchase.cardPurchase()
+from test import dashboard
+dashboard.landingPage()

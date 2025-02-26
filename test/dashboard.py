@@ -27,6 +27,12 @@ def landingPage():
     #     EC.visibility_of_element_located(DashboardPageLocators.user)
     # )
     # assert profile_pic.is_displayed(), "profile pic is not visible on dashboard"
+    
+    #refer & earn
+    refer = WebDriverWait(driver, 20).until(
+        EC.visibility_of_element_located(DashboardPageLocators.referandearn)
+    )
+    assert refer.is_displayed(), "refer & earn button is not visible on dashboard header"
 
     #sidebar
     sidebarmenu(driver)

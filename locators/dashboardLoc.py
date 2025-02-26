@@ -7,3 +7,4 @@ class DashboardPageLocators:
     FNlogo = (By.XPATH, '//*[@alt="fundednext-text-logo"]/following-sibling::*')
     user = (By.XPATH, '//*[@alt="user"]/following-sibling::*')
     search = (By.CLASS_NAME, "account-search")
+    referandearn = (By.LINK_TEXT, "Refer and Earn")
