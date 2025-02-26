@@ -45,7 +45,7 @@ def myoffersmenu():
     actual_header_subtitle =  " ".join(headersubtitle.text.split()).strip()
     assert actual_header_subtitle == expected_header_subtitle, f"Expected '{expected_header_subtitle}', but found '{actual_header_subtitle}'"
 
-    intercom(driver)
+    intercomicon(driver)
 
     expected_empty_title = "No Coupons Available"
     expected_empty_subtitle = (

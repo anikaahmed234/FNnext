@@ -20,7 +20,7 @@ def landingPage():
     )
     assert logo.is_displayed(), "logo is not visible on dashboard"
 
-    intercom(driver)
+    intercomicon(driver)
 
     #profile pic
     # profile_pic = WebDriverWait(driver, 20).until(

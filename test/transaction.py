@@ -30,7 +30,7 @@ def payoutHistory():
         EC.visibility_of_element_located(TransactionPageLocators.title)
     )
     assert title_name.is_displayed(), "title name is not visible"
-    intercom(driver)
+    intercomicon(driver)
 
    #columns
     expected_bilcol_names = ["SN", "Account No","Payment Method", "Status", "Date", "Transaction ID","Transition Type", "Paid Amount", "Funding Package", "Payment Proof" ]

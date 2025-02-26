@@ -11,3 +11,4 @@ from .transactionLoc import *
 from .popupLoc import *
 from .myOffersLoc import *
 from .competitionLoc import *
+from .intercomLoc import *
