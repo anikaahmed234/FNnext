@@ -4,7 +4,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from utilities.config import DASHBOARD
 
-
 from locators import *
 from .login import *
 

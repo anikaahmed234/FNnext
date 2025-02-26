@@ -5,3 +5,4 @@ from .checkout import *
 from .paymentMethod import *
 from .sidebar import *
 from .logout import *
+from .transaction import *

@@ -6,3 +6,5 @@ from .checkoutPageLocator import *
 from .freeTrialLoc import *
 from .sidebarLoc import *
 from .logoutLoc import *
+from .dashboardLoc import *
+from .transactionLoc import *
