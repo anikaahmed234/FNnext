@@ -8,3 +8,4 @@ from .sidebarLoc import *
 from .logoutLoc import *
 from .dashboardLoc import *
 from .transactionLoc import *
+from .popupLoc import *

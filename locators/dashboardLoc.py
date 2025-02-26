@@ -7,3 +7,4 @@ class DashboardPageLocators:
     FNlogo = (By.XPATH, '//*[@alt="fundednext-text-logo"]/following-sibling::*')
     user = (By.XPATH, '//*[@alt="user"]/following-sibling::*')
     search = (By.CLASS_NAME, "account-search")
+    intercom = (By.CLASS_NAME, "intercom-lightweight-app-launcher-icon")

@@ -5,16 +5,25 @@ from selenium.webdriver.support import expected_conditions as EC
 
 from locators import *
 from .login import *
+from .sidebar import *
+from .popupsclose import *
 
 def landingPage():
         
     driver = perform__valid_login()
-    
+    close_popUp(driver)
+
     #logo
     logo = WebDriverWait(driver, 20).until(
         EC.visibility_of_element_located(DashboardPageLocators.FNlogo)
     )
     assert logo.is_displayed(), "logo is not visible on dashboard"
+    
+    #intercom
+    intercomicon = WebDriverWait(driver, 20).until(
+        EC.visibility_of_element_located(DashboardPageLocators.intercom)
+    )
+    assert intercomicon.is_displayed(), "intercom icon is not visible"
 
     #profile pic
     # profile_pic = WebDriverWait(driver, 20).until(
@@ -23,7 +32,7 @@ def landingPage():
     # assert profile_pic.is_displayed(), "profile pic is not visible on dashboard"
 
     #sidebar
-    sidebarLoc(driver)
+    sidebarmenu(driver)
 
     #accountsTab
     expected_tab_names = ["Active", "Inactive", "Breached"]

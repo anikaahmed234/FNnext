@@ -7,7 +7,7 @@ from utilities.config import DASHBOARD
 from locators import *
 from .login import *
 
-def sidebarLoc(driver):
+def sidebarmenu(driver):
 
     #account
     accounts = WebDriverWait(driver, 20).until(

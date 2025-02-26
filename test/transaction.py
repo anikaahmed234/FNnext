@@ -5,18 +5,13 @@ from selenium.webdriver.support import expected_conditions as EC
 
 from locators import *
 from .login import *
+from .popupsclose import *
 
 def payoutHistory():
         
     driver = perform__valid_login()
 
-    wait = WebDriverWait(driver, 20)
-
-    close = wait.until(EC.visibility_of_element_located(TransactionPageLocators.tradingUpdates))
-    close.click()
-
-    closer = wait.until(EC.visibility_of_element_located(TransactionPageLocators.referPopUp))
-    closer.click()
+    close_popUp(driver)
 
     #Transactions
     Transactions = WebDriverWait(driver, 20).until(

@@ -1,2 +1,2 @@
-from test import transaction
-transaction.payoutHistory()
+from test import dashboard
+dashboard.landingPage()
