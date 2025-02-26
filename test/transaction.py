@@ -59,6 +59,12 @@ def payoutHistory():
     )
     assert subtitle_name.is_displayed(), "subtitle name is not visible"
 
+
+    totaldollar = WebDriverWait(driver, 20).until(
+        EC.visibility_of_element_located(TransactionPageLocators.totalAmount)
+    )
+    assert totaldollar.is_displayed(), "total amount is not visible"
+
    #columns
     expected_col_names = ["SN", "Account No", "Wallet Address", "Methods", "Status", "Disbursed Date","Amount" ]
 
