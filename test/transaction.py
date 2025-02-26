@@ -6,6 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from locators import *
 from .login import *
 from .popupsclose import *
+from .intercom import *
 
 def payoutHistory():
         
@@ -29,6 +30,7 @@ def payoutHistory():
         EC.visibility_of_element_located(TransactionPageLocators.title)
     )
     assert title_name.is_displayed(), "title name is not visible"
+    intercom(driver)
 
    #columns
     expected_bilcol_names = ["SN", "Account No","Payment Method", "Status", "Date", "Transaction ID","Transition Type", "Paid Amount", "Funding Package", "Payment Proof" ]

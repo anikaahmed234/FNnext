@@ -7,6 +7,7 @@ from locators import *
 from .login import *
 from .sidebar import *
 from .popupsclose import *
+from .intercom import *
 
 def landingPage():
         
@@ -18,12 +19,8 @@ def landingPage():
         EC.visibility_of_element_located(DashboardPageLocators.FNlogo)
     )
     assert logo.is_displayed(), "logo is not visible on dashboard"
-    
-    #intercom
-    intercomicon = WebDriverWait(driver, 20).until(
-        EC.visibility_of_element_located(DashboardPageLocators.intercom)
-    )
-    assert intercomicon.is_displayed(), "intercom icon is not visible"
+
+    intercom(driver)
 
     #profile pic
     # profile_pic = WebDriverWait(driver, 20).until(

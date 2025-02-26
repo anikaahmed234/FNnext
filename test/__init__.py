@@ -7,4 +7,6 @@ from .sidebar import *
 from .logout import *
 from .transaction import *
 from .popupsclose import *
+from .offers import *
+
 
