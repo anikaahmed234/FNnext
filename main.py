@@ -1,2 +1,2 @@
-from test import dashboard
-dashboard.landingPage()
+from test import competition
+competition.comp()
