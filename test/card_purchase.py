@@ -7,9 +7,13 @@ from .login import *
 from .challenge import *
 from .checkout import *
 from .paymentMethod import *
+from .popupsclose import *
 
-def cardPurchase(driver):
-        
+def cardPurchase():
+    
+    driver = perform__valid_login()
+    close_popUp(driver)
+
     # Verify Dashboard
     dashboard = WebDriverWait(driver, 20).until(
         EC.visibility_of_element_located(DashboardPageLocators.DASHBOARD_TITLE)
