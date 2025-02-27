@@ -18,14 +18,14 @@ def all():
         
     driver = perform__valid_login()
     close_popUp(driver)
-    landingPage(driver)
     # transaction_menu(driver)
     # calc(driver)
     # payout_menu(driver)
-    # my_offers_menu(driver)
+    my_offers_menu(driver)
+    # landingPage(driver)
     # competition_menu(driver)
-    # tools_menu(driver)
-    # ticket_menu(driver)
+    tools_menu(driver)
+    # ticket_menu(driver)ß
     # cardPurchasemenu(driver)
 
     return driver

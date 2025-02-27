@@ -14,3 +14,4 @@ from .tickets import *
 from .tools import *
 from .payout import *
 from .all_runner import *
+from .announcement import *

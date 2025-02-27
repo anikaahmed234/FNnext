@@ -7,6 +7,7 @@ from locators import *
 from .login import *
 from .pop_ups_close import *
 from .intercom import *
+from .announcement import *
 
 def my_offers_menu(driver):
         
@@ -45,8 +46,6 @@ def my_offers_menu(driver):
     actual_header_subtitle =  " ".join(headersubtitle.text.split()).strip()
     assert actual_header_subtitle == expected_header_subtitle, f"Expected '{expected_header_subtitle}', but found '{actual_header_subtitle}'"
 
-    intercomicon(driver)
-
     expected_empty_title = "No Coupons Available"
     expected_empty_subtitle = (
      "Trade with your current FundedNext Challenge Accounts to earn exclusive " 
@@ -68,6 +67,9 @@ def my_offers_menu(driver):
     actual_empty_subtitle = " ".join(emptysubtitle.text.split()).strip()
     assert actual_empty_subtitle == expected_empty_subtitle, f"Expected '{expected_empty_subtitle}', but found '{actual_empty_subtitle}'"
 
+    intercomicon(driver)
+
     driver.get(DASHBOARD)
+    announcement_close(driver)
 
     return driver
