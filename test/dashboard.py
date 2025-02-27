@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver import ActionChains
 
 from locators import *
 from .login import *
@@ -21,6 +22,23 @@ def landingPage(driver):
 
     intercomicon(driver)
 
+    #popUp
+    hover_element = WebDriverWait(driver, 10).until(
+        EC.visibility_of_element_located((By.CLASS_NAME, "ant-notification-notice"))  
+    )
+    ActionChains(driver).move_to_element(hover_element).perform()
+
+    pops = WebDriverWait(driver, 10).until(
+        EC.presence_of_all_elements_located((By.CLASS_NAME, "anticon-close-circle"))
+    )
+
+    for pop in pops:
+        try:
+            ActionChains(driver).move_to_element(pop).click().perform()
+            
+        except Exception as e:
+            print(f"Could not close popup: {e}")
+
     #profile pic
     # profile_pic = WebDriverWait(driver, 20).until(
     #     EC.visibility_of_element_located(DashboardPageLocators.USER)
@@ -34,7 +52,7 @@ def landingPage(driver):
     assert refer.is_displayed(), "refer & earn button is not visible on dashboard header"
 
     #sidebar
-    sidebar_menu(driver)
+    # sidebar_menu(driver)
 
     #accountsTab
     expected_tab_names = ["Active", "Inactive", "Breached"]

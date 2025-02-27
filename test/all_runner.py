@@ -18,7 +18,7 @@ def all():
         
     driver = perform__valid_login()
     close_popUp(driver)
-    # landingPage(driver)
+    landingPage(driver)
     # transaction_menu(driver)
     # calc(driver)
     # payout_menu(driver)
