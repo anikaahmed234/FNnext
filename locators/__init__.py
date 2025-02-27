@@ -15,3 +15,4 @@ from .intercomLoc import *
 from .calculatorLoc import *
 from .ticketsLoc import *
 from .toolLoc import *
+from .payoutLoc import *
