@@ -10,3 +10,5 @@ from .offers import *
 from .competition import *
 from .intercom import *
 from .calculator import *
+from .tickets import *
+from .tools import *

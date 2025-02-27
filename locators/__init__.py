@@ -13,3 +13,5 @@ from .myOffersLoc import *
 from .competitionLoc import *
 from .intercomLoc import *
 from .calculatorLoc import *
+from .ticketsLoc import *
+from .toolLoc import *

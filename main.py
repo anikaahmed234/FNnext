@@ -1,2 +1,2 @@
-from test import calculator
-calculator.calc()
+from test import tools
+tools.toolsmenu()
