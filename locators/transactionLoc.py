@@ -1,10 +1,10 @@
 from selenium.webdriver.common.by import By
 
 class TransactionPageLocators:
-    title = (By.XPATH, "//p[contains(text(), 'Billing-Payment Method')]")
-    payouthistory = (By.LINK_TEXT, "Payout History")
-    Transactions = By.XPATH, "//span[@class='sidebar__nav-link-title' and text()='Transactions']"
-    subtitlepayout = (By.XPATH, "//p[contains(text(), 'Payout History')]")
-    totalAmount = (By.XPATH, "//p[contains(text(), 'Total Amount: $')]")
-    colHead = (By.XPATH, "//thead//th")
-    bilcolHead = (By.XPATH, "//thead//th")
+    TITLE = (By.XPATH, "//p[contains(text(), 'Billing-Payment Method')]")
+    PAYOUT_HISTORY = (By.LINK_TEXT, "Payout History")
+    TRANSACTION = By.XPATH, "//span[@class='sidebar__nav-link-title' and text()='Transactions']"
+    SUBTITLE_PAYOUT = (By.XPATH, "//p[contains(text(), 'Payout History')]")
+    TOTAL_AMOUNT = (By.XPATH, "//p[contains(text(), 'Total Amount: $')]")
+    COL_HEAD = (By.XPATH, "//thead//th")
+    BILL_COL_HEAD = (By.XPATH, "//thead//th")

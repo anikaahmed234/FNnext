@@ -6,17 +6,17 @@ from selenium.webdriver.support import expected_conditions as EC
 from locators import *
 from .login import *
 from .sidebar import *
-from .popupsclose import *
+from .pop_ups_close import *
 from .intercom import *
 
-def payoutmenu():
+def payout_menu(driver):
     
-    driver = perform__valid_login()
-    close_popUp(driver)
+#     driver = perform__valid_login()
+#     close_popUp(driver)
 
     #Payout
     Payout = WebDriverWait(driver, 20).until(
-        EC.visibility_of_element_located(SideBar.Payout) 
+        EC.visibility_of_element_located(SideBarLocator.PAYOUT) 
     )
     Payout.click(), "sidebar is not visible after login"
     
@@ -30,7 +30,7 @@ def payoutmenu():
     expected_col_names = ["Login", "Date", "Withdrawal ID", "Requested Amount", "Status", "Disbursed Amount", "Timer", "Payout Proof","Tx Id","Note"]
 
     cols = WebDriverWait(driver, 20).until(
-         EC.presence_of_all_elements_located((payoutelement.colHead))
+         EC.presence_of_all_elements_located((PayoutLocator.COL_HEAD))
     )
 
     actual_tab_names = [col.text.strip() for col in cols]
@@ -43,7 +43,7 @@ def payoutmenu():
     expected_method_names = ["Rise", "USDT", "USDC", "Wind"]
 
     methodnames = WebDriverWait(driver, 20).until(
-            EC.presence_of_all_elements_located((payoutelement.method))
+            EC.presence_of_all_elements_located((PayoutLocator.METHOD))
     )
 
     actual_method_names = [method.text.strip() for method in methodnames]

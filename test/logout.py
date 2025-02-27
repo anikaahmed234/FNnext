@@ -7,12 +7,12 @@ from selenium.webdriver.support import expected_conditions as EC
 def doLogout(driver):
     
     dropdown = WebDriverWait(driver, 20).until(
-     EC.visibility_of_element_located(Logoutdrop.logout_icon)
+     EC.visibility_of_element_located(LogoutLocator.LOGOUT_ICON)
     )
     dropdown.click()
         
     logout_option = WebDriverWait(driver, 20).until(
-    EC.visibility_of_element_located(Logoutdrop.dropdown[1])
+    EC.visibility_of_element_located(LogoutLocator.DROPDOWN[1])
     )
     logout_option.click()
 

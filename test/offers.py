@@ -2,20 +2,21 @@ import time
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from utilities.config import DASHBOARD
 
 from locators import *
 from .login import *
-from .popupsclose import *
+from .pop_ups_close import *
 from .intercom import *
 
-def myoffersmenu():
+def my_offers_menu(driver):
         
-    driver = perform__valid_login()
-    close_popUp(driver)
+    # driver = perform__valid_login()
+    # close_popUp(driver)
 
     #My_Offers
     MyOffer = WebDriverWait(driver, 20).until(
-        EC.visibility_of_element_located(myOfferpage.MyOffersmenu)
+        EC.visibility_of_element_located(MyOfferPageLocator.MY_OFFER_MENU)
     )
     MyOffer.click(), "sidebar is not visible after login"
 
@@ -32,14 +33,14 @@ def myoffersmenu():
 )
 
     headertitle = WebDriverWait(driver, 20).until(
-        EC.visibility_of_element_located(myOfferpage.header_title)
+        EC.visibility_of_element_located(MyOfferPageLocator.HEADER_TITLE)
     )
     assert headertitle.is_displayed(), "title not displayed"
     actual_header_titile = headertitle.text.strip()
     assert actual_header_titile == expected_header_title, f"Expected '{expected_header_title}', but found '{actual_header_titile}'"
 
     headersubtitle = WebDriverWait(driver, 20).until(
-        EC.visibility_of_element_located(myOfferpage.header_subtitle)
+        EC.visibility_of_element_located(MyOfferPageLocator.HEADER_SUBTITLE)
     )
     assert headersubtitle.is_displayed(), "subtitle not displayed"
     actual_header_subtitle =  " ".join(headersubtitle.text.split()).strip()
@@ -54,7 +55,7 @@ def myoffersmenu():
      "on your rewarding trading journey."
     )
     emptytitle = WebDriverWait(driver, 20).until(
-        EC.visibility_of_element_located(myOfferpage.emptycoupon_title)
+        EC.visibility_of_element_located(MyOfferPageLocator.EMPTY_COUPON_TITLE)
     )
 
     assert emptytitle.is_displayed(), "not displayed"
@@ -62,11 +63,12 @@ def myoffersmenu():
     assert actual_empty_titile == expected_empty_title, f"Expected '{expected_empty_title}', but found '{actual_empty_titile}'"
 
     emptysubtitle = WebDriverWait(driver, 20).until(
-        EC.visibility_of_element_located(myOfferpage.emptycoupon_subtitle)
+        EC.visibility_of_element_located(MyOfferPageLocator.EMPTY_COUPON_SUBTITLE)
     )
     assert emptysubtitle.is_displayed(), "not displayed"
     actual_empty_subtitle = " ".join(emptysubtitle.text.split()).strip()
     assert actual_empty_subtitle == expected_empty_subtitle, f"Expected '{expected_empty_subtitle}', but found '{actual_empty_subtitle}'"
 
-  
+    driver.get(DASHBOARD)
+
     return driver

@@ -9,7 +9,7 @@ from locators import *
 from .login import *
 from .challenge import *
 from .checkout import *
-from .paymentMethod import *
+from .payment_Method import *
 
 def free_trial():
    
@@ -17,14 +17,14 @@ def free_trial():
     actions = ActionChains(driver)
 
     close_txt = WebDriverWait(driver, 20).until(
-        EC.element_to_be_clickable(FreeTrialButton.close_text)
+        EC.element_to_be_clickable(FreeTrialButton.CLOSE_TEXT)
     )
 
     # actions.move_to_element(close_icon).perform()
     assert close_txt.is_displayed() , "no"
 
     close_icon = WebDriverWait(driver, 20).until(
-        EC.element_to_be_clickable(FreeTrialButton.close_icon)
+        EC.element_to_be_clickable(FreeTrialButton.CLOSE_ICON)
     )
 
     # actions.move_to_element(close_icon).perform()
@@ -33,7 +33,7 @@ def free_trial():
     
     # Free Trial
     freeTrial = WebDriverWait(driver, 20).until(
-        EC.visibility_of_element_located(FreeTrialButton.Free_Trial)
+        EC.visibility_of_element_located(FreeTrialButton.FREE_TRIAL)
     )
     freeTrial.click()
 
@@ -48,7 +48,7 @@ def free_trial():
     time.sleep(5)
 
     thank_you = WebDriverWait(driver, 20).until(
-        EC.visibility_of_element_located(FreeTrialButton.Thank_you_msg)
+        EC.visibility_of_element_located(FreeTrialButton.THANK_YOU_MSG)
     )
     assert thank_you.is_displayed(), "Free Trial Failed"
     freeTrialLoc.START_CHALLENGE_BUTTON.click()

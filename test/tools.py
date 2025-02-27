@@ -6,17 +6,17 @@ from selenium.webdriver.support import expected_conditions as EC
 from locators import *
 from .login import *
 from .sidebar import *
-from .popupsclose import *
+from .pop_ups_close import *
 from .intercom import *
 
-def toolsmenu():
+def tools_menu(driver):
         
-    driver = perform__valid_login()
-    close_popUp(driver)
+    # driver = perform__valid_login()
+    # close_popUp(driver)
 
     #Tools
     Tools = WebDriverWait(driver, 20).until(
-        EC.visibility_of_element_located(SideBar.Tools)
+        EC.visibility_of_element_located(SideBarLocator.TOOLS)
     )
     Tools.click(), "sidebar is not visible after login"
 
@@ -30,7 +30,7 @@ def toolsmenu():
     expected_tab_names = ["All", "Tools", "Partnership", "E-Books","Videos"]
 
     tabs = WebDriverWait(driver, 10).until(
-        EC.presence_of_all_elements_located((toolelement.colHead))
+        EC.presence_of_all_elements_located((ToolsLocator.COL_HEAD))
     )
 
     actual_tab_names = [tab.text.strip() for tab in tabs]

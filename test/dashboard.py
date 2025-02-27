@@ -6,17 +6,17 @@ from selenium.webdriver.support import expected_conditions as EC
 from locators import *
 from .login import *
 from .sidebar import *
-from .popupsclose import *
+from .pop_ups_close import *
 from .intercom import *
 
-def landingPage():
+def landingPage(driver):
         
-    driver = perform__valid_login()
-    close_popUp(driver)
+    # driver = perform__valid_login()
+    # close_popUp(driver)
 
     #logo
     logo = WebDriverWait(driver, 20).until(
-        EC.visibility_of_element_located(DashboardPageLocators.FNlogo)
+        EC.visibility_of_element_located(DashboardPageLocators.FN_LOGO)
     )
     assert logo.is_displayed(), "logo is not visible on dashboard"
 
@@ -24,18 +24,18 @@ def landingPage():
 
     #profile pic
     # profile_pic = WebDriverWait(driver, 20).until(
-    #     EC.visibility_of_element_located(DashboardPageLocators.user)
+    #     EC.visibility_of_element_located(DashboardPageLocators.USER)
     # )
     # assert profile_pic.is_displayed(), "profile pic is not visible on dashboard"
     
     #refer & earn
     refer = WebDriverWait(driver, 20).until(
-        EC.visibility_of_element_located(DashboardPageLocators.referandearn)
+        EC.visibility_of_element_located(DashboardPageLocators.REFER_AND_EARN)
     )
     assert refer.is_displayed(), "refer & earn button is not visible on dashboard header"
 
     #sidebar
-    sidebarmenu(driver)
+    sidebar_menu(driver)
 
     #accountsTab
     expected_tab_names = ["Active", "Inactive", "Breached"]
@@ -53,7 +53,7 @@ def landingPage():
 
     #search box
     searchbox = WebDriverWait(driver, 20).until(
-        EC.visibility_of_element_located(DashboardPageLocators.search)
+        EC.visibility_of_element_located(DashboardPageLocators.SEARCH)
     )
     assert searchbox.is_displayed(), "search box is not visible"
 

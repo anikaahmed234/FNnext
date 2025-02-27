@@ -6,17 +6,17 @@ from selenium.webdriver.support import expected_conditions as EC
 from locators import *
 from .login import *
 from .sidebar import *
-from .popupsclose import *
+from .pop_ups_close import *
 from .intercom import *
 
-def ticketmenu():
+def ticket_menu(driver):
         
-    driver = perform__valid_login()
-    close_popUp(driver)
+    # driver = perform__valid_login()
+    # close_popUp(driver)
 
     #Tickets
     Tickets = WebDriverWait(driver, 20).until(
-        EC.visibility_of_element_located(SideBar.Tickets)
+        EC.visibility_of_element_located(SideBarLocator.TICKETS)
     )
     Tickets.click(), "sidebar is not visible after login"
 
@@ -30,7 +30,7 @@ def ticketmenu():
     expected_tab_names = ["Ticket ID", "Created Date", "Status", "Action"]
 
     tabs = WebDriverWait(driver, 10).until(
-        EC.presence_of_all_elements_located((ticketelement.colHead))
+        EC.presence_of_all_elements_located((TicketLocator.COL_HEAD))
     )
 
     actual_tab_names = [tab.text.strip() for tab in tabs]

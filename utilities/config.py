@@ -3,7 +3,6 @@ from selenium import webdriver
 from dotenv import load_dotenv
 
 from locators import *
-from test import login
 
 load_dotenv()
 

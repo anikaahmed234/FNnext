@@ -1,18 +1,20 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from utilities.config import DASHBOARD
 
 from locators import *
 from .login import *
 from .challenge import *
 from .checkout import *
-from .paymentMethod import *
-from .popupsclose import *
+from .payment_Method import *
+from .pop_ups_close import *
 
-def cardPurchase():
+def cardPurchasemenu(driver):
     
-    driver = perform__valid_login()
-    close_popUp(driver)
+    # driver = perform__valid_login()
+    # close_popUp(driver)
+    driver.get(DASHBOARD)
 
     # Verify Dashboard
     dashboard = WebDriverWait(driver, 20).until(

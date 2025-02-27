@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
 
-class payoutelement:
-    colHead = (By.XPATH,("//thead//th"))
-    method = (By.CLASS_NAME, "method")
+class PayoutLocator:
+    COL_HEAD = (By.XPATH,("//thead//th"))
+    METHOD = (By.CLASS_NAME, "method")

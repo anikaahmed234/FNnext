@@ -7,11 +7,11 @@ from utilities.config import DASHBOARD
 from locators import *
 from .login import *
 
-def sidebarmenu(driver):
+def sidebar_menu(driver):
 
     #account
     accounts = WebDriverWait(driver, 20).until(
-        EC.visibility_of_element_located(SideBar.accounts)
+        EC.visibility_of_element_located(SideBarLocator.ACCOUNTS)
     )
     accounts.click(), "sidebar is not visible after login"
 
@@ -23,7 +23,7 @@ def sidebarmenu(driver):
 
     #Transactions
     Transactions = WebDriverWait(driver, 20).until(
-        EC.visibility_of_element_located(SideBar.Transactions)
+        EC.visibility_of_element_located(SideBarLocator.TRANSACTION)
     )
     Transactions.click(), "sidebar is not visible after login"
 
@@ -35,7 +35,7 @@ def sidebarmenu(driver):
 
     #Payout
     Payout = WebDriverWait(driver, 20).until(
-        EC.visibility_of_element_located(SideBar.Payout)
+        EC.visibility_of_element_located(SideBarLocator.PAYOUT)
     )
     Payout.click(), "sidebar is not visible after login"
 
@@ -47,7 +47,7 @@ def sidebarmenu(driver):
 
     #Competition
     Competition = WebDriverWait(driver, 20).until(
-        EC.visibility_of_element_located(SideBar.Competition)
+        EC.visibility_of_element_located(SideBarLocator.COMPETITION)
     )
     Competition.click(), "sidebar is not visible after login"
 
@@ -59,7 +59,7 @@ def sidebarmenu(driver):
 
     #My_Offers
     My_Offers = WebDriverWait(driver, 20).until(
-        EC.visibility_of_element_located(SideBar.My_Offers)
+        EC.visibility_of_element_located(SideBarLocator.MY_OFFER)
     )
     My_Offers.click(), "sidebar is not visible after login"
 
@@ -73,7 +73,7 @@ def sidebarmenu(driver):
 
     #Tools
     Tools = WebDriverWait(driver, 20).until(
-        EC.visibility_of_element_located(SideBar.Tools)
+        EC.visibility_of_element_located(SideBarLocator.TOOLS)
     )
     Tools.click(), "sidebar is not visible after login"
 
@@ -86,7 +86,7 @@ def sidebarmenu(driver):
     #Symbols
     
     Symbols = WebDriverWait(driver, 20).until(
-        EC.visibility_of_element_located(SideBar.Symbols)
+        EC.visibility_of_element_located(SideBarLocator.SYMBOLS)
     )
     Symbols.click(), "sidebar is not visible after login"
 
@@ -98,7 +98,7 @@ def sidebarmenu(driver):
 
     #Calculator
     Calculator = WebDriverWait(driver, 20).until(
-        EC.visibility_of_element_located(SideBar.Calculator)
+        EC.visibility_of_element_located(SideBarLocator.CALCULATOR)
     )
     Calculator.click(), "sidebar is not visible after login"
 
@@ -110,7 +110,7 @@ def sidebarmenu(driver):
 
     #Tickets
     Tickets = WebDriverWait(driver, 20).until(
-        EC.visibility_of_element_located(SideBar.Tickets)
+        EC.visibility_of_element_located(SideBarLocator.TICKETS)
     )
     Tickets.click(), "sidebar is not visible after login"
 
@@ -122,7 +122,7 @@ def sidebarmenu(driver):
 
     #FAQ
     FAQ = WebDriverWait(driver, 20).until(
-        EC.visibility_of_element_located(SideBar.FAQ)
+        EC.visibility_of_element_located(SideBarLocator.FAQ)
     )
     FAQ.click(), "sidebar is not visible after login"
 
