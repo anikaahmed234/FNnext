@@ -5,6 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 from locators import *
 from .login import *
+from .sidebar import *
 from .popupsclose import *
 from .intercom import *
 
@@ -51,37 +52,37 @@ def comps():
 
     #tmc Tabs
     tmcup = WebDriverWait(driver, 20).until(
-        EC.presence_of_all_elements_located((competitionelement.tmc))
+        EC.visibility_of_element_located((competitionelement.tmc))
     )
     assert tmcup.is_displayed()
 
-   #free Tabs
+    #free Tabs
     freetab = WebDriverWait(driver, 20).until(
-        EC.presence_of_all_elements_located((competitionelement.free))
+        EC.visibility_of_element_located((competitionelement.free))
     )
     assert freetab.is_displayed()
 
     #comp list Tabs
     complist = WebDriverWait(driver, 20).until(
-        EC.presence_of_all_elements_located((competitionelement.comp_list))
+        EC.visibility_of_element_located((competitionelement.comp_list))
     )
     assert complist.is_displayed()
 
-   #upcoming Tabs
+    #upcoming Tabs
     upcoming = WebDriverWait(driver, 20).until(
-        EC.presence_of_all_elements_located((competitionelement.upcoming))
+        EC.visibility_of_element_located((competitionelement.upcoming))
     )
     assert upcoming.is_displayed()
 
     #inprogress Tabs
     inprogress = WebDriverWait(driver, 20).until(
-        EC.presence_of_all_elements_located((competitionelement.in_progress))
+        EC.visibility_of_element_located((competitionelement.in_progress))
     )
     assert inprogress.is_displayed()
 
-   #finished Tabs
+    #finished Tabs
     finished = WebDriverWait(driver, 20).until(
-        EC.presence_of_all_elements_located((competitionelement.finished))
+        EC.visibility_of_element_located((competitionelement.finished))
     )
     assert finished.is_displayed()
 
