@@ -1,2 +1,2 @@
-from test import competition
-competition.comps()
+from test import payout
+payout.payoutmenu()
