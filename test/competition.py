@@ -8,7 +8,7 @@ from .login import *
 from .popupsclose import *
 from .intercom import *
 
-def comp():
+def comps():
         
     driver = perform__valid_login()
     close_popUp(driver)
@@ -43,5 +43,46 @@ def comp():
     assert actual_header_subtitle == expected_header_subtitle, f"Expected '{expected_header_subtitle}', but found '{actual_header_subtitle}'"
 
     intercomicon(driver)
+
+    alertnocomp = WebDriverWait(driver, 20).until(
+        EC.visibility_of_element_located(competitionelement.alertcontainer)
+    )
+    alertnocomp.is_displayed()
+
+    #tmc Tabs
+    tmcup = WebDriverWait(driver, 20).until(
+        EC.presence_of_all_elements_located((competitionelement.tmc))
+    )
+    assert tmcup.is_displayed()
+
+   #free Tabs
+    freetab = WebDriverWait(driver, 20).until(
+        EC.presence_of_all_elements_located((competitionelement.free))
+    )
+    assert freetab.is_displayed()
+
+    #comp list Tabs
+    complist = WebDriverWait(driver, 20).until(
+        EC.presence_of_all_elements_located((competitionelement.comp_list))
+    )
+    assert complist.is_displayed()
+
+   #upcoming Tabs
+    upcoming = WebDriverWait(driver, 20).until(
+        EC.presence_of_all_elements_located((competitionelement.upcoming))
+    )
+    assert upcoming.is_displayed()
+
+    #inprogress Tabs
+    inprogress = WebDriverWait(driver, 20).until(
+        EC.presence_of_all_elements_located((competitionelement.in_progress))
+    )
+    assert inprogress.is_displayed()
+
+   #finished Tabs
+    finished = WebDriverWait(driver, 20).until(
+        EC.presence_of_all_elements_located((competitionelement.finished))
+    )
+    assert finished.is_displayed()
 
     return driver

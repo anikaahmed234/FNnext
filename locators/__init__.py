@@ -12,3 +12,4 @@ from .popupLoc import *
 from .myOffersLoc import *
 from .competitionLoc import *
 from .intercomLoc import *
+from .calculatorLoc import *

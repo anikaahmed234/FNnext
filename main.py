@@ -1,2 +1,2 @@
-from test import competition
-competition.comp()
+from test import calculator
+calculator.calc()
