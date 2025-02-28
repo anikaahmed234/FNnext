@@ -7,6 +7,7 @@ from locators import *
 from .login import *
 
 def sidebar_menu(driver):
+    print("🚀 Checking Sideabars...")
 
     #account
     accounts = WebDriverWait(driver, 20).until(
@@ -132,5 +133,6 @@ def sidebar_menu(driver):
     # assert current_url == expected_url, f"Expected URL: {expected_url}, but got: {current_url}"
 
     driver.get(DASHBOARD)
+    print("Sidebars are checked!!!")
 
     return driver

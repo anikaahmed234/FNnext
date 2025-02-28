@@ -9,7 +9,8 @@ from .pop_ups_close import *
 from .intercom import *
 
 def ticket_menu(driver):
-        
+    print("🚀 Ticket menu...")
+
     # driver = perform__valid_login()
     # close_popUp(driver)
 
@@ -40,4 +41,7 @@ def ticket_menu(driver):
         assert expected in actual_tab_names, f"Expected tab '{expected}' not found in actual tabs: {actual_tab_names}"
 
     intercomicon(driver)
+    
+    print("Ticker checked!!!")
+
     return driver

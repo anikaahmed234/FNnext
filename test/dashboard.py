@@ -1,18 +1,18 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver import ActionChains
 
 from locators import *
 from .login import *
 from .sidebar import *
 from .pop_ups_close import *
 from .intercom import *
+from .announcement import *
 
 def landingPage(driver):
-        
-    # driver = perform__valid_login()
-    # close_popUp(driver)
+    print("🚀 Landing page...")
+
+    announcement_close(driver)
 
     #logo
     logo = WebDriverWait(driver, 20).until(
@@ -20,30 +20,11 @@ def landingPage(driver):
     )
     assert logo.is_displayed(), "logo is not visible on dashboard"
 
-    intercomicon(driver)
-
-    #popUp
-    hover_element = WebDriverWait(driver, 10).until(
-        EC.visibility_of_element_located((By.CLASS_NAME, "ant-notification-notice"))  
-    )
-    ActionChains(driver).move_to_element(hover_element).perform()
-
-    pops = WebDriverWait(driver, 10).until(
-        EC.presence_of_all_elements_located((By.CLASS_NAME, "anticon-close-circle"))
-    )
-
-    for pop in pops:
-        try:
-            ActionChains(driver).move_to_element(pop).click().perform()
-            
-        except Exception as e:
-            print(f"Could not close popup: {e}")
-
     #profile pic
-    # profile_pic = WebDriverWait(driver, 20).until(
-    #     EC.visibility_of_element_located(DashboardPageLocators.USER)
-    # )
-    # assert profile_pic.is_displayed(), "profile pic is not visible on dashboard"
+    profile_pic = WebDriverWait(driver, 20).until(
+        EC.visibility_of_element_located(DashboardPageLocators.USER)
+    )
+    assert profile_pic.is_displayed(), "profile pic is not visible on dashboard"
     
     #refer & earn
     refer = WebDriverWait(driver, 20).until(
@@ -53,6 +34,35 @@ def landingPage(driver):
 
     #sidebar
     # sidebar_menu(driver)
+
+    intercomicon(driver)
+
+    #title & subtitle
+    expected_account_title = "Accounts"
+    account_title = WebDriverWait(driver, 20).until(
+        EC.visibility_of_element_located(DashboardPageLocators.ACCOUNT)
+    )
+    assert account_title.is_displayed(), "account title is not visible on dashboard"
+    actual_acc_title = account_title.text.strip()
+
+    assert actual_acc_title == expected_account_title, f"Expected tabs {expected_account_title}, but found {actual_acc_title}"
+
+    for expected in expected_account_title:
+        assert expected in actual_acc_title, f"Expected tab '{expected}' not found in actual tabs: {actual_acc_title}"
+
+    expected_account_subtitle = "Unlock your trading potential with FundedNext. Start trading now!"
+    account_subtitle = WebDriverWait(driver, 20).until(
+        EC.visibility_of_element_located(DashboardPageLocators.ACCOUNT_SUBTITLE)
+    )
+    assert account_subtitle.is_displayed(), "account subtitle is not visible on dashboard"
+    actual_acc_subtitle = account_subtitle.text.strip()
+
+    assert actual_acc_subtitle == expected_account_subtitle, f"Expected tabs {expected_account_subtitle}, but found {actual_acc_subtitle}"
+
+    for expected in expected_account_subtitle:
+        assert expected in actual_acc_subtitle, f"Expected tab '{expected}' not found in actual tabs: {actual_acc_subtitle}"
+
+    time.sleep(5)
 
     #accountsTab
     expected_tab_names = ["Active", "Inactive", "Breached"]
@@ -77,5 +87,7 @@ def landingPage(driver):
     #filter
 
     #banners
+
+    print("Exiting Landing Page!!!")
 
     return driver

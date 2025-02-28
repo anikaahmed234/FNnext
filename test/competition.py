@@ -9,7 +9,8 @@ from .pop_ups_close import *
 from .intercom import *
 
 def competition_menu(driver):
-        
+    print("🚀 Competition Menu...")
+
     # driver = perform__valid_login()
     # close_popUp(driver)
     
@@ -84,5 +85,7 @@ def competition_menu(driver):
         EC.visibility_of_element_located((CompetitionLocator.FINISHED))
     )
     assert finished.is_displayed()
+    
+    print("Exiting Competition!!!")
 
     return driver

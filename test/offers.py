@@ -10,7 +10,8 @@ from .intercom import *
 from .announcement import *
 
 def my_offers_menu(driver):
-        
+    print("🚀 My offer menu...")
+
     # driver = perform__valid_login()
     # close_popUp(driver)
 
@@ -71,5 +72,6 @@ def my_offers_menu(driver):
 
     driver.get(DASHBOARD)
     announcement_close(driver)
+    print("Exiting my offer!!!")
 
     return driver

@@ -15,3 +15,6 @@ from .tools import *
 from .payout import *
 from .all_runner import *
 from .announcement import *
+from .free_Trial import *
+from .dashboard import *
+

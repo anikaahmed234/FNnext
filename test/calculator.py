@@ -9,7 +9,8 @@ from .intercom import *
 from .sidebar import *
 
 def calc(driver):
-        
+    print("🚀 Calculator Menu...")
+
     # driver = perform__valid_login()
     # close_popUp(driver)
 
@@ -40,5 +41,7 @@ def calc(driver):
         assert expected in actual_tab_names, f"Expected tab '{expected}' not found in actual tabs: {actual_tab_names}"
 
     intercomicon(driver)
+
+    print("Exiting Calculator!!!")
 
     return driver

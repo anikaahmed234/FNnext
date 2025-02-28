@@ -10,7 +10,8 @@ from .payment_Method import *
 from .pop_ups_close import *
 
 def cardPurchasemenu(driver):
-    
+    print("🚀 Purchase Flow...")
+
     # driver = perform__valid_login()
     # close_popUp(driver)
     driver.get(DASHBOARD)
@@ -29,5 +30,6 @@ def cardPurchasemenu(driver):
 
     # Select Payment Method
     paymentCard(driver)
+    print("Purchased!!!")
 
     return driver

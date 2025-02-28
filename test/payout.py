@@ -9,9 +9,7 @@ from .pop_ups_close import *
 from .intercom import *
 
 def payout_menu(driver):
-    
-#     driver = perform__valid_login()
-#     close_popUp(driver)
+    print("🚀 Payout menu...")
 
     #Payout
     Payout = WebDriverWait(driver, 20).until(
@@ -51,5 +49,7 @@ def payout_menu(driver):
 
     for expected in expected_method_names:
            assert expected in actual_method_names, f"Expected tab '{expected}' not found in actual tabs: {actual_method_names}"
-    
+   
+    print("Exiting Payout!!!")
+
     return driver

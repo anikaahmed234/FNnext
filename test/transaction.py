@@ -8,7 +8,9 @@ from .pop_ups_close import *
 from .intercom import *
 
 def transaction_menu(driver):
-        
+
+    print("🚀 Transaction menu...")
+
     # driver = perform__valid_login()
     # close_popUp(driver)
 
@@ -73,6 +75,8 @@ def transaction_menu(driver):
 
     for expected in expected_col_names:
         assert expected in actual_col_names, f"Expected tab '{expected}' not found in actual tabs: {actual_col_names}"
+    
+    print("Transaction menu closed!!!")
 
     return driver
     

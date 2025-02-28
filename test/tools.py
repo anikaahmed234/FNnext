@@ -9,7 +9,9 @@ from .pop_ups_close import *
 from .intercom import *
 
 def tools_menu(driver):
-        
+    
+    print("🚀 Tools menu...")
+  
     # driver = perform__valid_login()
     # close_popUp(driver)
 
@@ -40,5 +42,7 @@ def tools_menu(driver):
         assert expected in actual_tab_names, f"Expected tab '{expected}' not found in actual tabs: {actual_tab_names}"
 
     intercomicon(driver)
+
+    print("Tools are checked!!!")
 
     return driver
