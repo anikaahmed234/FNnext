@@ -4,6 +4,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from locators import *
 
 def checkout(driver):
+    print("Checkout Page...")
 
     checkout = WebDriverWait(driver, 20).until(
         EC.visibility_of_element_located(CheckoutPageLocators.CHECKOUT_TITLE)
@@ -25,5 +26,6 @@ def checkout(driver):
         EC.element_to_be_clickable(CheckoutPageLocators.GET_STARTED_BUTTON)
     )
     button_element.click()
-
+    
+    print("Exiting checkout page!!!")
     return driver

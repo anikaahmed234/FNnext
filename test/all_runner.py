@@ -21,19 +21,20 @@ def all():
 
     driver = perform__valid_login()
     close_popUp(driver)
-    landingPage(driver)
-    free_trial(driver)
-    transaction_menu(driver)
-    calc(driver)
+
+    # landingPage(driver)
+    # free_trial(driver)
+    # transaction_menu(driver)
+    # calc(driver)
     payout_menu(driver)
-    my_offers_menu(driver)
-    free_trial(driver)
-    competition_menu(driver)
-    tools_menu(driver)
-    ticket_menu(driver)
-    cardPurchasemenu(driver)
+    # my_offers_menu(driver)
+    # free_trial(driver)
+    # competition_menu(driver)
+    # tools_menu(driver)
+    # ticket_menu(driver)
+    # cardPurchasemenu(driver)
     # doLogout(driver)
 
-    print("Exiting project!!!")
+    print("🎉 Exiting project!!! 🎉")
 
     return driver

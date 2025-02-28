@@ -4,7 +4,6 @@ from selenium.webdriver.support import expected_conditions as EC
 
 def doLogout(driver):
     
-    # driver.get("https://uat-dashboard.fundednext.com/competition")
     print("🚀 Logging Out...")
 
     dropdown = WebDriverWait(driver, 20).until(
