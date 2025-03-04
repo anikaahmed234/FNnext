@@ -72,10 +72,10 @@ def sidebar_menu(driver):
     driver.get(DASHBOARD)
 
     #Tools
-    Tools = WebDriverWait(driver, 20).until(
-        EC.visibility_of_element_located(SideBarLocator.TOOLS)
+    FILES = WebDriverWait(driver, 20).until(
+        EC.visibility_of_element_located(SideBarLocator.FILES)
     )
-    Tools.click(), "sidebar is not visible after login"
+    FILES.click(), "sidebar is not visible after login"
 
     time.sleep(3)
 
@@ -84,7 +84,7 @@ def sidebar_menu(driver):
     assert current_url == expected_url, f"Expected URL: {expected_url}, but got: {current_url}"
 
     #Symbols
-    
+
     Symbols = WebDriverWait(driver, 20).until(
         EC.visibility_of_element_located(SideBarLocator.SYMBOLS)
     )
@@ -92,9 +92,13 @@ def sidebar_menu(driver):
 
     time.sleep(3)
 
-    expected_url = f'{URL}/symbols'
+    expected_url = "https://uat-lander.fundednext.com/symbols"
+    window_handles = driver.window_handles
+    driver.switch_to.window(window_handles[-1])
     current_url = driver.current_url
-    # assert current_url == expected_url, f"Expected URL: {expected_url}, but got: {current_url}"
+
+    assert current_url == expected_url, f"Expected URL: {expected_url}, but got: {current_url}"
+    driver.get(DASHBOARD)
 
     #Calculator
     Calculator = WebDriverWait(driver, 20).until(

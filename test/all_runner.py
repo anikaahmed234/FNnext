@@ -19,16 +19,17 @@ from .logout import *
 def all():
     print("🚀 Starting yeee...")
 
-    driver = perform__invalid_login()
-    # close_popUp(driver)
-
-    # landingPage(driver)
+    driver = perform__valid_login()
+    close_popUp(driver)
+    
+    landingPage(driver)
     # free_trial(driver)
     # transaction_menu(driver)
     # calc(driver)
     # payout_menu(driver)
     # my_offers_menu(driver)
     # free_trial(driver)
+    # sidebar_menu(driver)
     # competition_menu(driver)
     # tools_menu(driver)
     # ticket_menu(driver)

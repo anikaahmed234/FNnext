@@ -33,7 +33,7 @@ def perform__invalid_login():
 
     driver = get_driver()
     driver.get(URL)
-    
+
     print("logging into FundedNext..")
 
     username = WebDriverWait(driver, 20).until(
@@ -41,7 +41,7 @@ def perform__invalid_login():
     )
     password = driver.find_element(*LoginPageLocators.PASSWORD_INPUT)
 
-    username.send_keys("a")
+    username.send_keys("1")
     password.send_keys("1")
 
     login = driver.find_element(*LoginPageLocators.LOGIN_BUTTON)
@@ -77,6 +77,26 @@ def perform__invalid_login():
             error_text = error.text.strip()
             if(error_text == "The password must be at least 6 characters."):
               print("Oh! Incorrect Password")
+              username.clear
+              password.clear
+        else:
+            print("dunno")
+    except Exception as e:
+        print(f"Error checking email: {e}")
+
+    username.send_keys(" ")
+    password.send_keys(" ")
+    login.click()
+
+    try:  
+        error = WebDriverWait(driver, 20).until(
+            EC.presence_of_element_located(LoginPageLocators.ERROR_USER_MSG)
+        )
+        if(error.is_displayed()):
+            print("Why I'm not in!!!")
+            error_text = error.text.strip()
+            if(error_text == "Please enter valid email"):
+              print("Oh! Space")
         else:
             print("dunno")
     except Exception as e:

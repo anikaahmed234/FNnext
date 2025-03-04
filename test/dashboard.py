@@ -1,3 +1,5 @@
+from urllib.parse import urlparse
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -33,9 +35,9 @@ def landingPage(driver):
     assert refer.is_displayed(), "refer & earn button is not visible on dashboard header"
 
     #sidebar
-    sidebar_menu(driver)
+    # sidebar_menu(driver)
 
-    intercomicon(driver)
+    # intercomicon(driver)
 
     #title & subtitle
     expected_account_title = "Accounts"
@@ -83,6 +85,22 @@ def landingPage(driver):
         EC.visibility_of_element_located(DashboardPageLocators.SEARCH)
     )
     assert searchbox.is_displayed(), "search box is not visible"
+
+    #Trading rules
+    trading_rules = WebDriverWait(driver, 20).until(
+        EC.element_to_be_clickable(DashboardPageLocators.TRADING_RULES)
+    )
+    trading_rules.click(), "trading rules button is not visible after login"
+
+    time.sleep(3)
+
+    expected_url = "https://help.fundednext.com/en/collections/11026230-trading-rules-guidelines?"
+    window_handles = driver.window_handles
+    driver.switch_to.window(window_handles[-1])
+    current_url = driver.current_url
+
+    trimmed_url = urlparse(current_url)._replace(query="", fragment="").geturl()
+    assert trimmed_url == expected_url, f"Expected URL: {expected_url}, but got: {trimmed_url}"
 
     #filter
 

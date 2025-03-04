@@ -6,7 +6,7 @@ class SideBarLocator:
         PAYOUT = By.XPATH, "//span[@class='sidebar__nav-link-title' and text()='Payout']"
         COMPETITION = By.XPATH, "//span[@class='sidebar__nav-link-title' and text()='Competition']"
         MY_OFFER = By.XPATH, "//span[@class='sidebar__nav-link-title' and text()='My Offers']"
-        TOOLS = By.XPATH, "//span[@class='sidebar__nav-link-title' and text()='Tools']"       
+        FILES = By.XPATH, "//span[@class='sidebar__nav-link-title' and text()='Files']"       
         SYMBOLS = By.XPATH, "//span[@class='sidebar__nav-link-title' and text()='Symbols']"
         CALCULATOR = By.XPATH, "//span[@class='sidebar__nav-link-title' and text()='Calculator']"
         INFINITY_POITNS = By.XPATH, "//span[@class='sidebar__nav-link-title' and text()='InfinityPoints']"

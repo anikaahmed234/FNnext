@@ -1,3 +1,4 @@
+import time 
 from selenium.webdriver import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -6,7 +7,7 @@ from selenium.webdriver.common.by import By
 def announcement_close(driver):
     while True:
         try:
-            hover_element = WebDriverWait(driver, 5).until(
+            hover_element = WebDriverWait(driver, 20).until(
                 EC.visibility_of_element_located((By.CLASS_NAME, "ant-notification-notice"))
             )
             ActionChains(driver).move_to_element(hover_element).perform()

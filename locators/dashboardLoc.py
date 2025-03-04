@@ -10,3 +10,4 @@ class DashboardPageLocators:
     REFER_AND_EARN = (By.LINK_TEXT, "Refer and Earn")
     ACCOUNT = (By.CLASS_NAME, "account-hero-v2__text-block--title")
     ACCOUNT_SUBTITLE = (By.CLASS_NAME, "account-hero-v2__text-block--subtitle")
+    TRADING_RULES = (By.LINK_TEXT, "Trading Rules & Guidelines")
