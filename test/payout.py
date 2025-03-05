@@ -51,7 +51,25 @@ def payout_menu(driver):
                 print("no cards found!")
     except:
         print("no cards found!")
+    
+    methods = WebDriverWait(driver, 20).until(
+            EC.visibility_of_all_elements_located(PayoutLocator.METHODS)
+        )
+    expected_srcs = [
+        "https://fundednext.fra1.cdn.digitaloceanspaces.com/rise-works-logo.svg",
+        "https://fundednext.fra1.cdn.digitaloceanspaces.com/tether.svg",
+        "https://fundednext.fra1.cdn.digitaloceanspaces.com/USDC-2.png",
+        "https://fundednext.fra1.cdn.digitaloceanspaces.com/wind-payment.jpg"
+    ]
+    for index, method in enumerate(methods):
+            img_element = method.find_element(By.CSS_SELECTOR, ".method-img")
+            img_src = img_element.get_attribute('src')
+            expected_src = expected_srcs[index]
 
+            print(f"Image {index + 1} src: {img_src}")
+            assert img_src == expected_src, f"Image {index + 1} src does not match. Expected: {expected_src}, Found: {img_src}"
+
+  
     expect_request = "Request Your Payouts"
     request_element = WebDriverWait(driver, 20).until(
          EC.visibility_of_element_located((PayoutLocator.REQUEST))
