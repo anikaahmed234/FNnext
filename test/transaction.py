@@ -11,9 +11,6 @@ def transaction_menu(driver):
 
     print("🚀 Transaction menu...")
 
-    # driver = perform__valid_login()
-    # close_popUp(driver)
-
     #Transactions
     Transactions = WebDriverWait(driver, 20).until(
         EC.visibility_of_element_located(TransactionPageLocators.TRANSACTION)

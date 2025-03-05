@@ -11,9 +11,6 @@ from .intercom import *
 def ticket_menu(driver):
     print("🚀 Ticket menu...")
 
-    # driver = perform__valid_login()
-    # close_popUp(driver)
-
     #Tickets
     Tickets = WebDriverWait(driver, 20).until(
         EC.visibility_of_element_located(SideBarLocator.TICKETS)

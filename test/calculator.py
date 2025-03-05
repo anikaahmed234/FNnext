@@ -11,9 +11,6 @@ from .sidebar import *
 def calc(driver):
     print("🚀 Calculator Menu...")
 
-    # driver = perform__valid_login()
-    # close_popUp(driver)
-
     #Calculator
     Calculator = WebDriverWait(driver, 20).until(
         EC.visibility_of_element_located(SideBarLocator.CALCULATOR)

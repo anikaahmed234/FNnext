@@ -35,9 +35,9 @@ def landingPage(driver):
     assert refer.is_displayed(), "refer & earn button is not visible on dashboard header"
 
     #sidebar
-    # sidebar_menu(driver)
+    sidebar_menu(driver)
 
-    # intercomicon(driver)
+    intercomicon(driver)
 
     #title & subtitle
     expected_account_title = "Accounts"

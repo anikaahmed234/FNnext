@@ -12,8 +12,6 @@ from .pop_ups_close import *
 def cardPurchasemenu(driver):
     print("🚀 Purchase Flow...")
 
-    # driver = perform__valid_login()
-    # close_popUp(driver)
     driver.get(DASHBOARD)
 
     # Verify Dashboard

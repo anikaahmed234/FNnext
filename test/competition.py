@@ -11,9 +11,6 @@ from .intercom import *
 def competition_menu(driver):
     print("🚀 Competition Menu...")
 
-    # driver = perform__valid_login()
-    # close_popUp(driver)
-    
     #Competition
     Competition = WebDriverWait(driver, 20).until(
         EC.visibility_of_element_located(SideBarLocator.COMPETITION)

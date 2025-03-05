@@ -53,7 +53,7 @@ def payout_menu(driver):
         print("no cards found!")
     
     methods = WebDriverWait(driver, 20).until(
-            EC.visibility_of_all_elements_located(PayoutLocator.METHODS)
+            EC.visibility_of_all_elements_located(PayoutLocator.METHOD)
         )
     expected_srcs = [
         "https://fundednext.fra1.cdn.digitaloceanspaces.com/rise-works-logo.svg",
@@ -115,6 +115,8 @@ def payout_menu(driver):
     )
 
     list_items = payout_list.find_elements(By.CSS_SELECTOR, "li.payment-method__text")
+    
+    intercomicon(driver)
 
     expected_texts = [
         "The 24 hour payout guarantee will be applicable after you request the payout. Make sure to enter correct payout method details. Press the 'Payout Request' button to start the 24-hour payout guarantee. Remember, incorrect information can cause delays, potentially depriving you of our 24-hour payout promise.",

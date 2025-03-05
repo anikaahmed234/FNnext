@@ -11,9 +11,6 @@ from .intercom import *
 def tools_menu(driver):
     
     print("🚀 Tools menu...")
-  
-    # driver = perform__valid_login()
-    # close_popUp(driver)
 
     #Tools
     Tools = WebDriverWait(driver, 20).until(

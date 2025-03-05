@@ -7,7 +7,6 @@ from selenium.webdriver import ActionChains
 from locators import *
 from .login import *
 
-
 def close_popUp(driver):
     print("🚀 Closing popUps...")
 
