@@ -23,6 +23,35 @@ def payout_menu(driver):
     current_url = driver.current_url
     assert current_url == expected_url, f"Expected URL: {expected_url}, but got: {current_url}"
     
+    # issue: only index 0 data is fetched
+    try:
+        cards = WebDriverWait(driver, 20).until(
+            EC.visibility_of_all_elements_located(PayoutLocator.CARDS)
+        )
+
+        card_count = len(cards)
+        print(f"Card Count: {card_count}")
+        for index, card in enumerate(cards):
+            try:
+              
+                amount_element = WebDriverWait(driver, 20).until(
+                  EC.visibility_of_element_located(PayoutLocator.AMOUNT)
+                )  
+                amount = amount_element.text 
+                print(f"Amount: {amount}")
+
+                amount_title_element = WebDriverWait(driver, 20).until(
+                  EC.visibility_of_element_located(PayoutLocator.TITLE)
+                )                
+                amount_title = amount_title_element.text 
+                print(f"amount title: {amount_title}")
+
+               
+            except:
+                print("no cards found!")
+    except:
+        print("no cards found!")
+
     expect_request = "Request Your Payouts"
     request_element = WebDriverWait(driver, 20).until(
          EC.visibility_of_element_located((PayoutLocator.REQUEST))
@@ -83,8 +112,16 @@ def payout_menu(driver):
         expected_text = expected_texts[index]
         assert actual_text == expected_text, f" Mismatch at item {index+1}:\nExpected: {expected_text}\nFound: {actual_text}"
      #    print(f"Item {index+1} text verified.")
+    #     print("🎉 All payout article items verified successfully!")
 
-#     print("🎉 All payout article items verified successfully!")
+    refreshing_element = WebDriverWait(driver, 20).until(
+        EC.visibility_of_element_located(PayoutLocator.REFRESHING_IN)
+    )
+    
+    expected_refreshing_in = "(Refreshing in "
+    refreshing_text = refreshing_element.text
+    assert expected_refreshing_in in refreshing_text, f"Expected tabs {expected_refreshing_in}, but found {refreshing_text}"
+    print(f"Refreshing text: {refreshing_text}")
 
     expected_col_names = ["Login", "Date", "Withdrawal ID", "Requested Amount", "Status", "Disbursed Amount", "Timer", "Payout Proof","Tx Id","Note"]
 
@@ -111,7 +148,7 @@ def payout_menu(driver):
 
     for expected in expected_method_names:
            assert expected in actual_method_names, f"Expected tab '{expected}' not found in actual tabs: {actual_method_names}"
-   
+
     print("Exiting Payout!!!")
 
     return driver

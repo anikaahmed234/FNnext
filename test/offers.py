@@ -71,7 +71,7 @@ def my_offers_menu(driver):
 
     intercomicon(driver)
 
-    # loop & description issue 
+    # issue: loop & description issue 
 
     try:
         cards = WebDriverWait(driver, 20).until(
