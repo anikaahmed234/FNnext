@@ -22,7 +22,47 @@ def payout_menu(driver):
     expected_url = f'{URL}/payout'
     current_url = driver.current_url
     assert current_url == expected_url, f"Expected URL: {expected_url}, but got: {current_url}"
-        
+    
+    expect_request = "Request Your Payouts"
+    request_element = WebDriverWait(driver, 20).until(
+         EC.visibility_of_element_located((PayoutLocator.REQUEST))
+    )
+    request = request_element.text
+    assert expect_request == request, f"Expected tabs {expect_request}, but found {request}"
+    print(f"Request Title: {request}")
+
+    expect_minimum_payout = "Minimum payout amount for withdrawal is $20"
+    minimum_payout_element = WebDriverWait(driver, 20).until(
+         EC.visibility_of_element_located((PayoutLocator.MINIMUM_PAYOUT))
+    )
+    minimum_payout = minimum_payout_element.text
+    assert expect_minimum_payout == minimum_payout, f"Expected tabs {expect_minimum_payout}, but found {minimum_payout}"
+    print(f"Minimum Payout: {minimum_payout}")
+
+    expect_minimum_payout_amount = "$20"
+    minimum_payout_amount_element = WebDriverWait(driver, 20).until(
+         EC.visibility_of_element_located((PayoutLocator.PAYOUT_AMOUNT))
+    )
+    minimum_payout_amount = minimum_payout_amount_element.text
+    assert expect_minimum_payout_amount == minimum_payout_amount, f"Expected tabs {expect_minimum_payout_amount}, but found {minimum_payout_amount}"
+    print(f"Minimum Payout Amount: {minimum_payout_amount}")
+
+    expect_payout_method = "Payout Methods"
+    payout_method_element = WebDriverWait(driver, 20).until(
+         EC.visibility_of_element_located((PayoutLocator.PAYOUT_METHOD))
+    )
+    payout_method = payout_method_element.text
+    assert expect_payout_method == payout_method, f"Expected tabs {expect_payout_method}, but found {payout_method}"
+    print(f"Payout: {payout_method}")  
+
+    expect_payout_method_body = "Your satisfaction is our priority. Discover our supported payout methods tailored to your needs. The available options are given below."
+    payout_method_body_element = WebDriverWait(driver, 20).until(
+         EC.visibility_of_element_located((PayoutLocator.PAYOUT_METHOD_BODY))
+    )
+    payout_method_body = payout_method_body_element.text
+    assert expect_payout_method_body == payout_method_body, f"Expected tabs {expect_payout_method_body}, but found {payout_method_body}"
+    print(f"Payout Method Body: {payout_method_body}") 
+
     payout_list = WebDriverWait(driver, 20).until(
         EC.visibility_of_element_located((By.CSS_SELECTOR, "ol[style*='list-style: auto']"))
     )
@@ -41,8 +81,8 @@ def payout_menu(driver):
     for index, item in enumerate(list_items):
         actual_text = item.text.strip()
         expected_text = expected_texts[index]
-        assert actual_text == expected_text, f"❌ Mismatch at item {index+1}:\nExpected: {expected_text}\nFound: {actual_text}"
-     #    print(f"✅ Item {index+1} text verified.")
+        assert actual_text == expected_text, f" Mismatch at item {index+1}:\nExpected: {expected_text}\nFound: {actual_text}"
+     #    print(f"Item {index+1} text verified.")
 
 #     print("🎉 All payout article items verified successfully!")
 
