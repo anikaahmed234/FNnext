@@ -18,10 +18,10 @@ def announcement_close(driver):
                 print("No more pop-ups found.")
                 break
             
-            for pop in pops:
+            for index, pop in enumerate(pops): 
                 try:
                     ActionChains(driver).move_to_element(pop).click().perform()
-                    print("Pop-up closed.")
+                    print(f"Pop-up closed.")
                 except Exception as e:
                     print(f"Error closing pop-up: {e}")
         
