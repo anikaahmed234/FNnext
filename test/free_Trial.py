@@ -5,14 +5,14 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 
 from locators import *
-from .login import *
-from .challenge import *
+from .announcement import *
 from .dashboard import *
-from .checkout import *
-from .payment_Method import *
+from .freeTrialDashboard import *
 
 def free_trial(driver):
     print("🚀 Free Trial Launching...")
+
+    announcement_close(driver)
 
     # Free Trial
     freeTrial = WebDriverWait(driver, 20).until(
@@ -25,10 +25,10 @@ def free_trial(driver):
             EC.visibility_of_element_located(FreeTrialButton.HAVE_FT)
         )
         if have_ft.is_displayed():
-            print("Have Free Trial' is displayed. Exiting function.")
+            print("Already have Free Trial Account")
+            free_trial_dashboard(driver)
             return driver
     except:
-        print("Have Free Trial' not displayed. Continuing with Free Trial process...")
 
         checkbox_element = WebDriverWait(driver, 20).until(
             EC.element_to_be_clickable(FreeTrialButton.CHECKBOX)
@@ -50,13 +50,17 @@ def free_trial(driver):
             EC.visibility_of_element_located(FreeTrialButton.START_CHALLENGE_BUTTON)
         )
         start_challenge_button.click()
-        
+        time.sleep(3)
+
         # Verify Dashboard
         dashboard = WebDriverWait(driver, 20).until(
             EC.visibility_of_element_located(DashboardPageLocators.DASHBOARD_TITLE)
         )
         assert dashboard.is_displayed(), "Dashboard is not visible after login"
-        
-        print("Exiting Free Trial!!!")
+                
+        free_trial_dashboard(driver)
+        return driver
+
+    print("Exiting Free Trial!!!")
 
     return driver

@@ -73,6 +73,12 @@ def transaction_menu(driver):
     for expected in expected_col_names:
         assert expected in actual_col_names, f"Expected tab '{expected}' not found in actual tabs: {actual_col_names}"
     
+    #refer & earn
+    refer = WebDriverWait(driver, 20).until(
+        EC.visibility_of_element_located(DashboardPageLocators.REFER_AND_EARN)
+    )
+    assert refer.is_displayed(), "refer & earn button is not visible on dashboard header"
+
     print("Transaction menu closed!!!")
 
     return driver

@@ -41,6 +41,12 @@ def competition_menu(driver):
     assert actual_header_subtitle == expected_header_subtitle, f"Expected '{expected_header_subtitle}', but found '{actual_header_subtitle}'"
 
     intercomicon(driver)
+    
+    #refer & earn
+    refer = WebDriverWait(driver, 20).until(
+        EC.visibility_of_element_located(DashboardPageLocators.REFER_AND_EARN)
+    )
+    assert refer.is_displayed(), "refer & earn button is not visible on dashboard header"
 
     alertnocomp = WebDriverWait(driver, 20).until(
         EC.visibility_of_element_located(CompetitionLocator.ALERT_CONTAINER)

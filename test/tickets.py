@@ -39,6 +39,12 @@ def ticket_menu(driver):
 
     intercomicon(driver)
     
+    #refer & earn
+    refer = WebDriverWait(driver, 20).until(
+        EC.visibility_of_element_located(DashboardPageLocators.REFER_AND_EARN)
+    )
+    assert refer.is_displayed(), "refer & earn button is not visible on dashboard header"
+
     print("Ticker checked!!!")
 
     return driver
