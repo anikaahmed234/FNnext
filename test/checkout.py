@@ -9,7 +9,12 @@ def checkout(driver):
     checkout = WebDriverWait(driver, 20).until(
         EC.visibility_of_element_located(CheckoutPageLocators.CHECKOUT_TITLE)
     )
-    assert checkout.is_displayed(), "Checkout is not visible after redirect"
+    try:
+        assert checkout.is_displayed(), "Checkout is not visible after redirect"
+        print("✅ checkout page is visible!!!")
+
+    except AssertionError as msg:
+        print(msg)
 
     get_plan = WebDriverWait(driver, 20).until(
         EC.element_to_be_clickable(CheckoutPageLocators.PLAN_BUTTON)

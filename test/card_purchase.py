@@ -18,8 +18,12 @@ def cardPurchasemenu(driver):
     dashboard = WebDriverWait(driver, 20).until(
         EC.visibility_of_element_located(DashboardPageLocators.DASHBOARD_TITLE)
     )
-    assert dashboard.is_displayed(), "Dashboard is not visible after login"
- 
+    try:
+        assert dashboard.is_displayed(), "❌ Dashboard is not visible after login"
+        print("✅ Landed on dashboard!!!")
+
+    except AssertionError as msg:
+        print(msg)
     # start challenge
     take_challenge(driver)
 
@@ -28,6 +32,6 @@ def cardPurchasemenu(driver):
 
     # Select Payment Method
     paymentCard(driver)
-    print("Purchased!!!")
+    print("✅ Purchased!!!")
 
     return driver

@@ -15,7 +15,7 @@ def transaction_menu(driver):
     Transactions = WebDriverWait(driver, 20).until(
         EC.visibility_of_element_located(TransactionPageLocators.TRANSACTION)
     )
-    Transactions.click(), "sidebar is not visible after login"
+    Transactions.click(), "❌ sidebar is not visible after login"
 
     time.sleep(3)
 
@@ -26,7 +26,7 @@ def transaction_menu(driver):
     title_name = WebDriverWait(driver, 20).until(
         EC.visibility_of_element_located(TransactionPageLocators.TITLE)
     )
-    assert title_name.is_displayed(), "title name is not visible"
+    assert title_name.is_displayed(), "❌ title name is not visible"
     intercomicon(driver)
 
    #columns
@@ -38,10 +38,10 @@ def transaction_menu(driver):
 
     actual_bilcol_names = [tab.text.strip() for tab in tabs]
 
-    assert actual_bilcol_names == expected_bilcol_names, f"Expected tabs {expected_bilcol_names}, but found {actual_bilcol_names}"
+    assert actual_bilcol_names == expected_bilcol_names, f"❌ Expected tabs {expected_bilcol_names}, but found {actual_bilcol_names}"
 
     for expected in expected_bilcol_names:
-        assert expected in actual_bilcol_names, f"Expected tab '{expected}' not found in actual tabs: {actual_bilcol_names}"
+        assert expected in actual_bilcol_names, f"❌ Expected tab '{expected}' not found in actual tabs: {actual_bilcol_names}"
 
     payoutHistoryopt = WebDriverWait(driver, 20).until(
         EC.element_to_be_clickable(TransactionPageLocators.PAYOUT_HISTORY)
@@ -51,13 +51,13 @@ def transaction_menu(driver):
     subtitle_name = WebDriverWait(driver, 20).until(
         EC.visibility_of_element_located(TransactionPageLocators.SUBTITLE_PAYOUT)
     )
-    assert subtitle_name.is_displayed(), "subtitle name is not visible"
+    assert subtitle_name.is_displayed(), "❌ subtitle name is not visible"
 
 
     totaldollar = WebDriverWait(driver, 20).until(
         EC.visibility_of_element_located(TransactionPageLocators.TOTAL_AMOUNT)
     )
-    assert totaldollar.is_displayed(), "total amount is not visible"
+    assert totaldollar.is_displayed(), "❌ total amount is not visible"
 
    #columns
     expected_col_names = ["SN", "Account No", "Wallet Address", "Methods", "Status", "Disbursed Date","Amount" ]
@@ -68,16 +68,16 @@ def transaction_menu(driver):
 
     actual_col_names = [tab.text.strip() for tab in tabs]
 
-    assert actual_col_names == expected_col_names, f"Expected tabs {expected_col_names}, but found {actual_col_names}"
+    assert actual_col_names == expected_col_names, f"❌ Expected tabs {expected_col_names}, but found {actual_col_names}"
 
     for expected in expected_col_names:
-        assert expected in actual_col_names, f"Expected tab '{expected}' not found in actual tabs: {actual_col_names}"
+        assert expected in actual_col_names, f"❌ Expected tab '{expected}' not found in actual tabs: {actual_col_names}"
     
     #refer & earn
     refer = WebDriverWait(driver, 20).until(
         EC.visibility_of_element_located(DashboardPageLocators.REFER_AND_EARN)
     )
-    assert refer.is_displayed(), "refer & earn button is not visible on dashboard header"
+    assert refer.is_displayed(), "❌ refer & earn button is not visible on dashboard header"
 
     print("Transaction menu closed!!!")
 

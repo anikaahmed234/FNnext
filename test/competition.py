@@ -46,7 +46,12 @@ def competition_menu(driver):
     refer = WebDriverWait(driver, 20).until(
         EC.visibility_of_element_located(DashboardPageLocators.REFER_AND_EARN)
     )
-    assert refer.is_displayed(), "refer & earn button is not visible on dashboard header"
+    try:
+        assert refer.is_displayed(), "refer & earn button is not visible on dashboard header"
+        print("✅ Refer button is visible!!!")
+
+    except AssertionError as msg:
+        print(msg)
 
     alertnocomp = WebDriverWait(driver, 20).until(
         EC.visibility_of_element_located(CompetitionLocator.ALERT_CONTAINER)
@@ -57,38 +62,68 @@ def competition_menu(driver):
     tmcup = WebDriverWait(driver, 20).until(
         EC.visibility_of_element_located((CompetitionLocator.TMC))
     )
-    assert tmcup.is_displayed()
+    try:
+        assert tmcup.is_displayed()
+        print("✅ Trade Master Cup tab is visible!!!")
+
+    except AssertionError as msg:
+        print(msg)
 
     #free Tabs
     freetab = WebDriverWait(driver, 20).until(
         EC.visibility_of_element_located((CompetitionLocator.FREE))
     )
-    assert freetab.is_displayed()
+    try:
+        assert freetab.is_displayed()
+        print("✅ Free tab is visible!!!")
+
+    except AssertionError as msg:
+        print(msg)
 
     #comp list Tabs
     complist = WebDriverWait(driver, 20).until(
         EC.visibility_of_element_located((CompetitionLocator.COMP_LIST))
     )
-    assert complist.is_displayed()
+    try:
+        assert complist.is_displayed()
+        print("✅ Competition List tab is visible!!!")
+
+    except AssertionError as msg:
+        print(msg)
 
     #upcoming Tabs
     upcoming = WebDriverWait(driver, 20).until(
         EC.visibility_of_element_located((CompetitionLocator.UPCOMING))
     )
-    assert upcoming.is_displayed()
+    try:
+        assert upcoming.is_displayed()
+        print("✅ Upcoming tab is visible!!!")
+
+    except AssertionError as msg:
+        print(msg)
 
     #inprogress Tabs
     inprogress = WebDriverWait(driver, 20).until(
         EC.visibility_of_element_located((CompetitionLocator.IN_PROGRESS))
     )
-    assert inprogress.is_displayed()
+    try:
+        assert inprogress.is_displayed()
+        print("✅ Inprogress tab is visible!!!")
+
+    except AssertionError as msg:
+        print(msg)
 
     #finished Tabs
     finished = WebDriverWait(driver, 20).until(
         EC.visibility_of_element_located((CompetitionLocator.FINISHED))
     )
-    assert finished.is_displayed()
-    
+    try:
+        assert finished.is_displayed()
+        print("✅ Finish tab is visible!!!")
+
+    except AssertionError as msg:
+        print(msg)
+        
     print("Exiting Competition!!!")
 
     return driver

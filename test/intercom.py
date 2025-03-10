@@ -11,7 +11,7 @@ def intercomicon(driver):
     intercomicon = WebDriverWait(driver, 20).until(
         EC.visibility_of_element_located(IntercomLocator.INTERCOM)
     )
-    assert intercomicon.is_displayed(), "intercom icon is not visible"
-    print("Intercom checked!!!")
+    assert intercomicon.is_displayed(), "❌ intercom icon is not visible"
+    print("✅ Intercom checked!!!")
 
     return driver

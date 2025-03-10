@@ -136,7 +136,7 @@ def payout_menu(driver):
     for index, item in enumerate(list_items):
         actual_text = item.text.strip()
         expected_text = expected_texts[index]
-        assert actual_text == expected_text, f" Mismatch at item {index+1}:\nExpected: {expected_text}\nFound: {actual_text}"
+        assert actual_text == expected_text, f"❌ Mismatch at item {index+1}:\nExpected: {expected_text}\nFound: {actual_text}"
      #    print(f"Item {index+1} text verified.")
     #     print("🎉 All payout article items verified successfully!")
 
@@ -146,7 +146,7 @@ def payout_menu(driver):
     
     expected_refreshing_in = "(Refreshing in "
     refreshing_text = refreshing_element.text
-    assert expected_refreshing_in in refreshing_text, f"Expected tabs {expected_refreshing_in}, but found {refreshing_text}"
+    assert expected_refreshing_in in refreshing_text, f"❌ Expected tabs {expected_refreshing_in}, but found {refreshing_text}"
     print(f"Refreshing text: {refreshing_text}")
 
     expected_col_names = ["Login", "Date", "Withdrawal ID", "Requested Amount", "Status", "Disbursed Amount", "Timer", "Payout Proof","Tx Id","Note"]
@@ -157,10 +157,10 @@ def payout_menu(driver):
 
     actual_tab_names = [col.text.strip() for col in cols]
 
-    assert actual_tab_names == expected_col_names, f"Expected tabs {expected_col_names}, but found {actual_tab_names}"
+    assert actual_tab_names == expected_col_names, f"❌ Expected tabs {expected_col_names}, but found {actual_tab_names}"
 
     for expected in expected_col_names:
-         assert expected in actual_tab_names, f"Expected tab '{expected}' not found in actual tabs: {actual_tab_names}"
+         assert expected in actual_tab_names, f"❌ Expected tab '{expected}' not found in actual tabs: {actual_tab_names}"
 
     expected_method_names = ["Rise", "USDT", "USDC", "Wind"]
 
@@ -170,10 +170,10 @@ def payout_menu(driver):
 
     actual_method_names = [method.text.strip() for method in methodnames]
 
-    assert actual_method_names == expected_method_names, f"Expected tabs {expected_method_names}, but found {actual_method_names}"
+    assert actual_method_names == expected_method_names, f"❌ Expected tabs {expected_method_names}, but found {actual_method_names}"
 
     for expected in expected_method_names:
-           assert expected in actual_method_names, f"Expected tab '{expected}' not found in actual tabs: {actual_method_names}"
+           assert expected in actual_method_names, f"❌ Expected tab '{expected}' not found in actual tabs: {actual_method_names}"
 
     print("Exiting Payout!!!")
 

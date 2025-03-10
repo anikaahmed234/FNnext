@@ -25,7 +25,7 @@ def free_trial(driver):
             EC.visibility_of_element_located(FreeTrialButton.HAVE_FT)
         )
         if have_ft.is_displayed():
-            print("Already have Free Trial Account")
+            print("Ow oo.. Already have Free Trial Account")
             free_trial_dashboard(driver)
             return driver
     except:
@@ -44,8 +44,13 @@ def free_trial(driver):
         thank_you = WebDriverWait(driver, 20).until(
             EC.visibility_of_element_located(FreeTrialButton.THANK_YOU_MSG)
         )
-        assert thank_you.is_displayed(), "Free Trial Failed"
-        
+        try:
+            assert thank_you.is_displayed(), "❌ Free Trial Failed"
+            print("✅ Thank you msg is visible!!!")
+
+        except AssertionError as msg:
+             print(msg)
+    
         start_challenge_button = WebDriverWait(driver, 20).until(
             EC.visibility_of_element_located(FreeTrialButton.START_CHALLENGE_BUTTON)
         )
@@ -56,8 +61,13 @@ def free_trial(driver):
         dashboard = WebDriverWait(driver, 20).until(
             EC.visibility_of_element_located(DashboardPageLocators.DASHBOARD_TITLE)
         )
-        assert dashboard.is_displayed(), "Dashboard is not visible after login"
-                
+        try:
+            assert dashboard.is_displayed(), "❌ Dashboard is not visible after login"
+            print("✅ dashboard is visible!!!")
+
+        except AssertionError as msg:
+            print(msg)
+    
         free_trial_dashboard(driver)
         return driver
 

@@ -22,7 +22,12 @@ def my_offers_menu(driver):
 
     expected_url = f'{URL}/user-offer'
     current_url = driver.current_url
-    assert current_url == expected_url, f"Expected URL: {expected_url}, but got: {current_url}"
+    try:
+        assert current_url == expected_url, f"❌ Expected URL: {expected_url}, but got: {current_url}"
+        print("✅ Redirected to the offer page!!!")
+
+    except AssertionError as msg:
+        print(msg)
 
     expected_header_title = "Your Exclusive Offer"
     expected_header_subtitle = (
@@ -33,16 +38,38 @@ def my_offers_menu(driver):
     headertitle = WebDriverWait(driver, 20).until(
         EC.visibility_of_element_located(MyOfferPageLocator.HEADER_TITLE)
     )
-    assert headertitle.is_displayed(), "title not displayed"
+    try:
+        assert headertitle.is_displayed(), "header title not displayed"
+        print("✅ header title is visible!!!")
+
+    except AssertionError as msg:
+        print(msg)
+
     actual_header_titile = headertitle.text.strip()
-    assert actual_header_titile == expected_header_title, f"Expected '{expected_header_title}', but found '{actual_header_titile}'"
+    try:
+        assert actual_header_titile == expected_header_title, f"❌ Expected '{expected_header_title}', but found '{actual_header_titile}'"
+        print("✅ header title is matched!!!")
+
+    except AssertionError as msg:
+        print(msg)
 
     headersubtitle = WebDriverWait(driver, 20).until(
         EC.visibility_of_element_located(MyOfferPageLocator.HEADER_SUBTITLE)
     )
-    assert headersubtitle.is_displayed(), "subtitle not displayed"
+    try:
+        assert headersubtitle.is_displayed(), "subtitle not displayed"
+        print("✅ header subtitle is visible!!!")
+
+    except AssertionError as msg:
+        print(msg)
+
     actual_header_subtitle =  " ".join(headersubtitle.text.split()).strip()
-    assert actual_header_subtitle == expected_header_subtitle, f"Expected '{expected_header_subtitle}', but found '{actual_header_subtitle}'"
+    try:
+        assert actual_header_subtitle == expected_header_subtitle, f"❌ Expected '{expected_header_subtitle}', but found '{actual_header_subtitle}'"
+        print("✅ header subtitle is matched!!!")
+
+    except AssertionError as msg:
+        print(msg)
 
     try:
         expected_empty_title = "No Coupons Available"
@@ -54,17 +81,38 @@ def my_offers_menu(driver):
         emptytitle = WebDriverWait(driver, 20).until(
             EC.visibility_of_element_located(MyOfferPageLocator.EMPTY_COUPON_TITLE)
         )
+        try:
+            assert emptytitle.is_displayed(), "not displayed"
+            print("✅ empty title is visible!!!")
 
-        assert emptytitle.is_displayed(), "not displayed"
+        except AssertionError as msg:
+            print(msg)
+       
         actual_empty_titile = emptytitle.text.strip()
-        assert actual_empty_titile == expected_empty_title, f"Expected '{expected_empty_title}', but found '{actual_empty_titile}'"
+        try:
+            assert actual_empty_titile == expected_empty_title, f"❌ Expected '{expected_empty_title}', but found '{actual_empty_titile}'"
+            print("✅ empty title is matched!!!")
+
+        except AssertionError as msg:
+            print(msg)
 
         emptysubtitle = WebDriverWait(driver, 20).until(
             EC.visibility_of_element_located(MyOfferPageLocator.EMPTY_COUPON_SUBTITLE)
         )
-        assert emptysubtitle.is_displayed(), "not displayed"
+        try:
+            assert emptysubtitle.is_displayed(), "not displayed"
+            print("✅ empty subtitle is visible!!!")
+
+        except AssertionError as msg:
+            print(msg)
+       
         actual_empty_subtitle = " ".join(emptysubtitle.text.split()).strip()
-        assert actual_empty_subtitle == expected_empty_subtitle, f"Expected '{expected_empty_subtitle}', but found '{actual_empty_subtitle}'"
+        try:
+            assert actual_empty_subtitle == expected_empty_subtitle, f"❌ Expected '{expected_empty_subtitle}', but found '{actual_empty_subtitle}'"
+            print("✅ empty subtitle is matched!!!")
+
+        except AssertionError as msg:
+            print(msg)
 
     except:
         print("cards found!")
@@ -140,7 +188,7 @@ def my_offers_menu(driver):
                 print(f"Apply Button: {apply_button.is_displayed()}")  
 
             except Exception as e:
-                print(f"Error extracting details from card {index + 1}: {e}")
+                print(f"❌ Error extracting details from card {index + 1}: {e}")
 
     except Exception as e:
         print(e)

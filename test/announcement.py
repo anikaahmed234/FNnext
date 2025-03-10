@@ -15,18 +15,18 @@ def announcement_close(driver):
             pops = driver.find_elements(By.CSS_SELECTOR, "a.ant-notification-notice-close")
             
             if not pops:
-                print("No more pop-ups found.")
+                print("✅ No more pop-ups found.")
                 break
             
             for index, pop in enumerate(pops): 
                 try:
                     ActionChains(driver).move_to_element(pop).click().perform()
-                    print(f"Pop-up closed.")
+                    print(f"✅ Pop-up closed.")
                 except Exception as e:
-                    print(f"Error closing pop-up: {e}")
+                    print(f"❌ Error closing pop-up: {e}")
         
         except Exception as e:
-            print("No pop-ups found or timeout reached.")
+            print("❌ No pop-ups found or timeout reached.")
             break
 
     return driver

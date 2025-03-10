@@ -62,7 +62,7 @@ def perform__invalid_login():
             print("dunno")
 
     except Exception as e:
-        print(f"Error checking email: {e}")
+        print(f"❌ Error checking email: {e}")
 
     username.send_keys(USERNAME)
     password.send_keys("1")
@@ -82,7 +82,7 @@ def perform__invalid_login():
         else:
             print("dunno")
     except Exception as e:
-        print(f"Error checking email: {e}")
+        print(f"❌ Error checking email: {e}")
 
     username.send_keys(" ")
     password.send_keys(" ")
@@ -100,7 +100,7 @@ def perform__invalid_login():
         else:
             print("dunno")
     except Exception as e:
-        print(f"Error checking email: {e}")
+        print(f"❌ Error checking email: {e}")
 
     perform__valid_login()
     return driver

@@ -25,18 +25,19 @@ def all():
     # landingPage(driver)
     # free_trial(driver)
     # transaction_menu(driver)
-    # calc(driver)
+    calc(driver)
     # announcement_close(driver)
     # payout_menu(driver)
     # my_offers_menu(driver)
-    free_trial(driver)
+    # free_trial(driver)
     # sidebar_menu(driver)
     # competition_menu(driver)
     # tools_menu(driver)
     # ticket_menu(driver)
     # cardPurchasemenu(driver)
     # doLogout(driver)
-
+    driver.quit()
+    
     print("🎉 Exiting project!!! 🎉")
 
     return driver

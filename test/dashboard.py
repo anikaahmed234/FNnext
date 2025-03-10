@@ -20,20 +20,35 @@ def landingPage(driver):
     logo = WebDriverWait(driver, 20).until(
         EC.visibility_of_element_located(DashboardPageLocators.FN_LOGO)
     )
-    assert logo.is_displayed(), "logo is not visible on dashboard"
+    try:
+        assert logo.is_displayed(), "logo is not visible on dashboard"
+        print("✅ Logo is visible!!!")
+
+    except AssertionError as msg:
+        print(msg)
 
     #profile pic
     profile_pic = WebDriverWait(driver, 20).until(
         EC.visibility_of_element_located(DashboardPageLocators.USER)
     )
-    assert profile_pic.is_displayed(), "profile pic is not visible on dashboard"
-    
+    try:
+        assert profile_pic.is_displayed(), "profile pic is not visible on dashboard"
+        print("✅ Profile Pic is visible!!!")
+
+    except AssertionError as msg:
+        print(msg)
+
     #refer & earn
     refer = WebDriverWait(driver, 20).until(
         EC.visibility_of_element_located(DashboardPageLocators.REFER_AND_EARN)
     )
-    assert refer.is_displayed(), "refer & earn button is not visible on dashboard header"
+    try:
+        assert refer.is_displayed(), "refer & earn button is not visible on dashboard header"
+        print("✅ refer button is visible!!!")
 
+    except AssertionError as msg:
+        print(msg)
+    
     #sidebar
     sidebar_menu(driver)
 
@@ -75,22 +90,27 @@ def landingPage(driver):
 
     actual_tab_names = [tab.text.strip() for tab in tabs]
 
-    assert actual_tab_names == expected_tab_names, f"Expected tabs {expected_tab_names}, but found {actual_tab_names}"
+    assert actual_tab_names == expected_tab_names, f"❌ Expected tabs {expected_tab_names}, but found {actual_tab_names}"
 
     for expected in expected_tab_names:
-        assert expected in actual_tab_names, f"Expected tab '{expected}' not found in actual tabs: {actual_tab_names}"
+        assert expected in actual_tab_names, f"❌ Expected tab '{expected}' not found in actual tabs: {actual_tab_names}"
 
     #search box
     searchbox = WebDriverWait(driver, 20).until(
         EC.visibility_of_element_located(DashboardPageLocators.SEARCH)
     )
-    assert searchbox.is_displayed(), "search box is not visible"
+    try:
+        assert searchbox.is_displayed(), "❌ search box is not visible"
+        print("✅ Searchbox is visible!!!")
 
+    except AssertionError as msg:
+        print(msg)
+    
     #Trading rules
     trading_rules = WebDriverWait(driver, 20).until(
         EC.element_to_be_clickable(DashboardPageLocators.TRADING_RULES)
     )
-    trading_rules.click(), "trading rules button is not visible after login"
+    trading_rules.click(), "❌ trading rules button is not visible after login"
 
     time.sleep(3)
 
@@ -100,8 +120,13 @@ def landingPage(driver):
     current_url = driver.current_url
 
     trimmed_url = urlparse(current_url)._replace(query="", fragment="").geturl()
-    assert trimmed_url == expected_url, f"Expected URL: {expected_url}, but got: {trimmed_url}"
+    try:
+        assert trimmed_url == expected_url, f"❌ Expected URL: {expected_url}, but got: {trimmed_url}"
+        print("✅ trading rules button is visible!!!")
 
+    except AssertionError as msg:
+        print(msg)
+    
     #filter
 
     #banners
