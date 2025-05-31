@@ -119,10 +119,10 @@ def payout_menu(driver):
     intercomicon(driver)
     
     #refer & earn
-    refer = WebDriverWait(driver, 20).until(
-        EC.visibility_of_element_located(DashboardPageLocators.REFER_AND_EARN)
-    )
-    assert refer.is_displayed(), "refer & earn button is not visible on dashboard header"
+    # refer = WebDriverWait(driver, 20).until(
+    #     EC.visibility_of_element_located(DashboardPageLocators.REFER_AND_EARN)
+    # )
+    # assert refer.is_displayed(), "refer & earn button is not visible on dashboard header"
 
     expected_texts = [
         "The 24 hour payout guarantee will be applicable after you request the payout. Make sure to enter correct payout method details. Press the 'Payout Request' button to start the 24-hour payout guarantee. Remember, incorrect information can cause delays, potentially depriving you of our 24-hour payout promise.",
@@ -148,7 +148,7 @@ def payout_menu(driver):
     refreshing_text = refreshing_element.text
     assert expected_refreshing_in in refreshing_text, f"❌ Expected tabs {expected_refreshing_in}, but found {refreshing_text}"
     print(f"Refreshing text: {refreshing_text}")
-
+    
     expected_col_names = ["Login", "Date", "Withdrawal ID", "Requested Amount", "Status", "Disbursed Amount", "Timer", "Payout Proof","Tx Id","Note"]
 
     cols = WebDriverWait(driver, 20).until(

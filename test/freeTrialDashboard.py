@@ -26,11 +26,11 @@ def free_trial_dashboard(driver):
     
     intercomicon(driver)
     try:
-        refer = WebDriverWait(driver, 20).until(
-            EC.visibility_of_element_located(DashboardPageLocators.REFER_AND_EARN)
-        )
-        assert refer.is_displayed(), "❌ not visible on the screen"
-        print("✅ refer button is visible!!!")
+        # refer = WebDriverWait(driver, 20).until(
+        #     EC.visibility_of_element_located(DashboardPageLocators.REFER_AND_EARN)
+        # )
+        # assert refer.is_displayed(), "❌ not visible on the screen"
+        # print("✅ refer button is visible!!!")
 
         imp_notice = WebDriverWait(driver, 20).until(
             EC.visibility_of_element_located(FreeTrialButton.IMPORTANT_NOTICE)

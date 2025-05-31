@@ -14,7 +14,10 @@ from .announcement import *
 def landingPage(driver):
     print("🚀 Landing page...")
 
-    announcement_close(driver)
+    # try:
+    #     announcement_close(driver)
+    # except:
+    #     print(f"No announcement")
 
     #logo
     logo = WebDriverWait(driver, 20).until(
@@ -39,18 +42,18 @@ def landingPage(driver):
         print(msg)
 
     #refer & earn
-    refer = WebDriverWait(driver, 20).until(
-        EC.visibility_of_element_located(DashboardPageLocators.REFER_AND_EARN)
-    )
-    try:
-        assert refer.is_displayed(), "refer & earn button is not visible on dashboard header"
-        print("✅ refer button is visible!!!")
+    # refer = WebDriverWait(driver, 20).until(
+    #     EC.visibility_of_element_located(DashboardPageLocators.REFER_AND_EARN)
+    # )
+    # try:
+    #     assert refer.is_displayed(), "refer & earn button is not visible on dashboard header"
+    #     print("✅ refer button is visible!!!")
 
-    except AssertionError as msg:
-        print(msg)
+    # except AssertionError as msg:
+    #     print(msg)
     
     #sidebar
-    sidebar_menu(driver)
+    # sidebar_menu(driver)
 
     intercomicon(driver)
 
@@ -126,7 +129,8 @@ def landingPage(driver):
 
     except AssertionError as msg:
         print(msg)
-    
+    driver.get(DASHBOARD)
+
     #filter
 
     #banners

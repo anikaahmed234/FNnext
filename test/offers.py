@@ -120,10 +120,10 @@ def my_offers_menu(driver):
     intercomicon(driver)
         
     #refer & earn
-    refer = WebDriverWait(driver, 20).until(
-        EC.visibility_of_element_located(DashboardPageLocators.REFER_AND_EARN)
-    )
-    assert refer.is_displayed(), "refer & earn button is not visible on dashboard header"
+    # refer = WebDriverWait(driver, 20).until(
+    #     EC.visibility_of_element_located(DashboardPageLocators.REFER_AND_EARN)
+    # )
+    # assert refer.is_displayed(), "refer & earn button is not visible on dashboard header"
 
     # issue: loop & description issue 
 

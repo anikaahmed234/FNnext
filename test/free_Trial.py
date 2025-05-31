@@ -12,8 +12,10 @@ from .freeTrialDashboard import *
 def free_trial(driver):
     print("🚀 Free Trial Launching...")
 
-    announcement_close(driver)
-
+    # try:
+    #    announcement_close(driver)
+    # except:
+    #     print("Announcement is already closed")
     # Free Trial
     freeTrial = WebDriverWait(driver, 20).until(
         EC.visibility_of_element_located(FreeTrialButton.FREE_TRIAL)

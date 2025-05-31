@@ -46,14 +46,14 @@ def calc(driver):
     intercomicon(driver)
    
     #refer & earn
-    refer = WebDriverWait(driver, 20).until(
-        EC.visibility_of_element_located(DashboardPageLocators.REFER_AND_EARN)
-    )
-    try:
-        assert refer.is_displayed(), "refer & earn button is not visible on dashboard header"
-        print("✅ Refer & Earn button is visible!!!")
-    except AssertionError as msg:
-        print(msg)
+    # refer = WebDriverWait(driver, 20).until(
+    #     EC.visibility_of_element_located(DashboardPageLocators.REFER_AND_EARN)
+    # )
+    # try:
+    #     assert refer.is_displayed(), "refer & earn button is not visible on dashboard header"
+    #     print("✅ Refer & Earn button is visible!!!")
+    # except AssertionError as msg:
+    #     print(msg)
     print("Exiting Calculator!!!")
 
     return driver

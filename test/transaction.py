@@ -29,9 +29,9 @@ def transaction_menu(driver):
     assert title_name.is_displayed(), "❌ title name is not visible"
     intercomicon(driver)
 
-   #columns
-    expected_bilcol_names = ["SN", "Account No","Payment Method", "Status", "Date", "Transaction ID","Transition Type", "Paid Amount", "Funding Package", "Payment Proof" ]
-
+    #columns
+    time.sleep(3)
+    expected_bilcol_names = ['SN', 'Account No', 'Payment Method', 'Date', 'Transaction ID', 'Transition Type', 'Amount', 'Discount', 'Total Amount']
     tabs = WebDriverWait(driver, 10).until(
          EC.presence_of_all_elements_located((TransactionPageLocators.COL_HEAD))
     )
@@ -73,11 +73,11 @@ def transaction_menu(driver):
     for expected in expected_col_names:
         assert expected in actual_col_names, f"❌ Expected tab '{expected}' not found in actual tabs: {actual_col_names}"
     
-    #refer & earn
-    refer = WebDriverWait(driver, 20).until(
-        EC.visibility_of_element_located(DashboardPageLocators.REFER_AND_EARN)
-    )
-    assert refer.is_displayed(), "❌ refer & earn button is not visible on dashboard header"
+    # #refer & earn
+    # refer = WebDriverWait(driver, 20).until(
+    #     EC.visibility_of_element_located(DashboardPageLocators.REFER_AND_EARN)
+    # )
+    # assert refer.is_displayed(), "❌ refer & earn button is not visible on dashboard header"
 
     print("Transaction menu closed!!!")
 

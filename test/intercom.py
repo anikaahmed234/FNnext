@@ -9,8 +9,7 @@ def intercomicon(driver):
 
     #intercom
     intercomicon = WebDriverWait(driver, 20).until(
-        EC.visibility_of_element_located(IntercomLocator.INTERCOM)
-    )
+        EC.visibility_of_element_located(IntercomLocator.INTERCOM) )
     assert intercomicon.is_displayed(), "❌ intercom icon is not visible"
     print("✅ Intercom checked!!!")
 

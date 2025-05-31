@@ -26,7 +26,7 @@ def announcement_close(driver):
                     print(f"❌ Error closing pop-up: {e}")
         
         except Exception as e:
-            print("❌ No pop-ups found or timeout reached.")
+            print("❌ No announcement found or timeout reached.")
             break
 
     return driver
